@@ -5,8 +5,9 @@ import {
   Users, 
   ClipboardCheck, 
   AlertTriangle, 
-  Zap, 
-  PlusCircle 
+  PlusCircle,
+  ShieldCheck,
+  ShieldAlert,
 } from "lucide-react";
 import Link from "next/link";
 import StatChart from "@/components/charts/StatChart";
@@ -26,21 +27,56 @@ export default async function PerawatDashboard() {
 
   const namaBulan = new Intl.DateTimeFormat('id-ID', { month: 'long' }).format(new Date());
 
-  // Beri tahu TypeScript bahwa details adalah objek yang memiliki kunci string dengan nilai angka
-const details: Record<string, number> = stats?.details || {};
+  const details: Record<string, number> = stats?.details || {};
 
-const chartData = [
-  { name: 'UC', jumlah: Number(details.uc || 0) },
-  { name: 'CVL', jumlah: Number(details.cvl || 0) },
-  { name: 'IVL', jumlah: Number(details.ivl || 0) },
-  { name: 'ETT', jumlah: Number(details.ett || 0) },
-  { name: 'VAP', jumlah: Number(details.vap || 0) },
-  { name: 'IDO', jumlah: Number(details.ido || 0) },
-  { name: 'ISK', jumlah: Number(details.isk || 0) },
-  { name: 'IAD', jumlah: Number(details.iad || 0) },
-  { name: 'TB', jumlah: Number(details.tb || 0) },
-  { name: 'PLB', jumlah: Number(details.plb || 0) },
-];
+  const chartData = [
+    { name: 'UC', jumlah: Number(details.uc || 0) },
+    { name: 'CVL', jumlah: Number(details.cvl || 0) },
+    { name: 'IVL', jumlah: Number(details.ivl || 0) },
+    { name: 'ETT', jumlah: Number(details.ett || 0) },
+    { name: 'VAP', jumlah: Number(details.vap || 0) },
+    { name: 'IDO', jumlah: Number(details.ido || 0) },
+    { name: 'ISK', jumlah: Number(details.isk || 0) },
+    { name: 'IAD', jumlah: Number(details.iad || 0) },
+    { name: 'TB', jumlah: Number(details.tb || 0) },
+    { name: 'PLB', jumlah: Number(details.plb || 0) },
+  ];
+
+  // LOGIKA ALERT SYSTEM (Ambang Batas HAIs)
+  const temuanHais = stats?.potensiHais || 0;
+  
+  let alertConfig = {
+    title: "Status: Aman",
+    desc: "Angka infeksi di bawah ambang batas.",
+    icon: <ShieldCheck className="text-emerald-500" size={20} />,
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-100",
+    textColor: "text-emerald-600",
+    pulseClass: "" 
+  };
+
+  if (temuanHais >= 5) { // Threshold High Alert
+    alertConfig = {
+      title: "High Alert Detected",
+      desc: "Segera lakukan audit kepatuhan PPI!",
+      icon: <ShieldAlert className="text-red-500" size={20} />,
+      bgColor: "bg-red-50",
+      borderColor: "border-red-300",
+      textColor: "text-red-600",
+      // Efek kedipan lebih terang dengan shadow glow merah
+      pulseClass: "animate-pulse ring-4 ring-red-500/30 shadow-[0_0_25px_rgba(239,68,68,0.4)] border-red-400"
+    };
+  } else if (temuanHais > 0) {
+    alertConfig = {
+      title: "Status: Waspada",
+      desc: "Mendekati ambang batas bulanan.",
+      icon: <AlertTriangle className="text-amber-500" size={20} />,
+      bgColor: "bg-amber-50",
+      borderColor: "border-amber-200",
+      textColor: "text-amber-600",
+      pulseClass: "ring-2 ring-amber-400/20"
+    };
+  }
 
   return (
     <div className="space-y-6 text-slate-600">
@@ -90,17 +126,25 @@ const chartData = [
             </div>
           </div>
           <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Temuan HAIs</p>
-          <h3 className={`text-2xl font-semibold mt-1 ${stats?.potensiHais && stats.potensiHais > 0 ? 'text-red-500' : 'text-slate-800'}`}>{stats?.potensiHais || 0}</h3>
+          <h3 className={`text-2xl font-semibold mt-1 ${temuanHais > 0 ? 'text-red-500' : 'text-slate-800'}`}>{temuanHais}</h3>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
+        {/* KARTU ALERT DENGAN KEDIPAN TERANG */}
+        <div className={`p-5 rounded-2xl border transition-all duration-300 ${alertConfig.bgColor} ${alertConfig.borderColor} ${alertConfig.pulseClass}`}>
           <div className="flex justify-between items-center mb-3">
-            <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
-              <Zap size={20} />
+            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm">
+              {alertConfig.icon}
             </div>
+            {alertConfig.pulseClass.includes("animate-pulse") && (
+              <span className="flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-6 w-6 rounded-full bg-red-400 opacity-20"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+              </span>
+            )}
           </div>
-          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Status Data</p>
-          <h3 className="text-sm font-semibold text-emerald-600 mt-2 italic">Ter-sinkronisasi</h3>
+          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Ambang Batas</p>
+          <h3 className={`text-sm font-extrabold mt-2 ${alertConfig.textColor}`}>{alertConfig.title}</h3>
+          <p className="text-[10px] font-semibold text-slate-500 leading-tight mt-1">{alertConfig.desc}</p>
         </div>
       </div>
 
@@ -131,7 +175,7 @@ const chartData = [
         </div>
       </div>
 
-      {/* GRAFIK STATISTIK - WowDash Style */}
+      {/* GRAFIK STATISTIK */}
       <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
         <div className="mb-6">
           <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight">Distribusi Indikator Medis</h2>

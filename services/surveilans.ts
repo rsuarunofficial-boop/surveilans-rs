@@ -49,7 +49,7 @@ export async function saveSurveilansMassal(dataRows: any[]) {
 }
 
 /**
- * Fungsi: Menghitung rekapitulasi bulanan dengan detail indikator untuk Grafik
+ * Fungsi: Menghitung rekapitulasi bulanan dengan akurasi Pasien Unik untuk HAIs
  */
 export async function getStatsBulanIni() {
   const cookieStore = await cookies();
@@ -64,6 +64,7 @@ export async function getStatsBulanIni() {
 
   const now = new Date();
   
+  // Format tanggal awal bulan dan hari ini
   const firstDay = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Jakarta',
     year: 'numeric',
@@ -90,24 +91,142 @@ export async function getStatsBulanIni() {
     return { totalPasien: 0, totalTindakan: 0, potensiHais: 0, details: {} };
   }
 
-  // Menghitung detail akumulasi per indikator untuk Bar Chart
+  // Filter Pasien Unik berdasarkan No. RM untuk setiap kategori HAIs
+  const uniqueVap = new Set(data.filter(r => Number(r.vap) === 1).map(r => r.no_rm)).size;
+  const uniqueIdo = new Set(data.filter(r => Number(r.ido) === 1).map(r => r.no_rm)).size;
+  const uniqueIsk = new Set(data.filter(r => Number(r.isk) === 1).map(r => r.no_rm)).size;
+  const uniqueIad = new Set(data.filter(r => Number(r.iad) === 1).map(r => r.no_rm)).size;
+  
+  // Total Pasien Unik secara keseluruhan di unit tersebut
+  const totalPasienUnik = new Set(data.map(r => r.no_rm)).size;
+
+  // Akumulasi Detail untuk Chart (Tindakan dihitung frekuensi, HAIs dihitung kasus unik)
   const details = {
     uc: data.reduce((acc, curr) => acc + (Number(curr.uc) || 0), 0),
     cvl: data.reduce((acc, curr) => acc + (Number(curr.cvl) || 0), 0),
     ivl: data.reduce((acc, curr) => acc + (Number(curr.ivl) || 0), 0),
     ett: data.reduce((acc, curr) => acc + (Number(curr.ett) || 0), 0),
-    vap: data.reduce((acc, curr) => acc + (Number(curr.vap) || 0), 0),
-    ido: data.reduce((acc, curr) => acc + (Number(curr.ido) || 0), 0),
-    isk: data.reduce((acc, curr) => acc + (Number(curr.isk) || 0), 0),
-    iad: data.reduce((acc, curr) => acc + (Number(curr.iad) || 0), 0),
+    vap: uniqueVap,
+    ido: uniqueIdo,
+    isk: uniqueIsk,
+    iad: uniqueIad,
     tb: data.reduce((acc, curr) => acc + (Number(curr.tirah_baring) || 0), 0),
     plb: data.reduce((acc, curr) => acc + (Number(curr.plebitis) || 0), 0),
   };
 
   return {
-    totalPasien: data.length,
+    totalPasien: totalPasienUnik,
     totalTindakan: details.uc + details.cvl + details.ivl + details.ett,
-    potensiHais: details.vap + details.ido + details.isk + details.iad,
-    details // Mengirimkan objek detail ke frontend
+    potensiHais: uniqueVap + uniqueIdo + uniqueIsk + uniqueIad,
+    details 
   };
+}
+
+/**
+ * Fungsi untuk mengambil riwayat surveilans perawat yang login
+ */
+export async function getRiwayatSurveilans() {
+  const cookieStore = await cookies();
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { cookies: { getAll() { return cookieStore.getAll() } } }
+  );
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return [];
+
+  const { data, error } = await supabase
+    .from('surveilans_harian')
+    .select('*')
+    .eq('user_id', user.id)
+    .order('tanggal', { ascending: false })
+    .limit(50);
+
+  if (error) {
+    console.error("Fetch history error:", error);
+    return [];
+  }
+
+  return data;
+}
+
+/**
+ * Fungsi untuk menghapus data
+ */
+export async function deleteSurveilans(id: string) {
+  const cookieStore = await cookies();
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() { return cookieStore.getAll() },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {}
+        },
+      },
+    }
+  );
+
+  const { error } = await supabase.from('surveilans_harian').delete().eq('id', id);
+  if (error) throw error;
+  
+  revalidatePath('/dashboard/perawat/riwayat');
+  return { success: true };
+}
+
+/**
+ * Mengambil data tunggal untuk proses Edit
+ */
+export async function getSurveilansById(id: string) {
+  const cookieStore = await cookies();
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { cookies: { getAll() { return cookieStore.getAll() } } }
+  );
+
+  const { data, error } = await supabase
+    .from('surveilans_harian')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) return null;
+  return data;
+}
+
+/**
+ * Memperbarui data surveilans
+ */
+export async function updateSurveilans(id: string, formData: any) {
+  const cookieStore = await cookies();
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() { return cookieStore.getAll() },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {}
+        },
+      },
+    }
+  );
+
+  const { error } = await supabase.from('surveilans_harian').update(formData).eq('id', id);
+  if (error) throw error;
+
+  revalidatePath('/dashboard/perawat/riwayat');
+  revalidatePath('/dashboard/perawat');
+  return { success: true };
 }

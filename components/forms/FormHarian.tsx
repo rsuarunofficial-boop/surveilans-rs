@@ -29,7 +29,20 @@ type StateRow = {
   antibiotik: string;
 };
 
-const OPSI_ANTIBIOTIK = ["", "CEFOTAXIME", "LEVOFLOXSACIN", "CIPROFLOXACIN"];
+// Daftar antibiotik yang disesuaikan dengan daftar di EditForm.tsx
+const OPSI_ANTIBIOTIK = [
+  "",
+  "Ceftriaxone",
+  "Cefotaxime",
+  "Ciprofloxacin",
+  "Levofloxacin",
+  "Meropenem",
+  "Amoxicillin",
+  "Gentamicin",
+  "Metronidazole",
+  "Vancomycin",
+  "Lainnya / Tidak Ada"
+];
 
 // Mendefinisikan kolom checkbox agar TypeScript tidak bingung
 const CHECKBOX_COLUMNS: (keyof StateRow)[] = [

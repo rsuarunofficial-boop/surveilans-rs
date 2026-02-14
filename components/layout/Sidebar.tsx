@@ -9,14 +9,16 @@ import {
   BarChart3, 
   Files, 
   Settings, 
-  Hospital 
+  Hospital,
+  BellRing // Import ikon untuk notifikasi ambang batas
 } from "lucide-react";
 
 const menuByRole = {
   Perawat: [
     { name: "Dashboard", href: "/dashboard/perawat", icon: LayoutDashboard },
     { name: "Form Surveilans", href: "/dashboard/perawat/form", icon: ClipboardList },
-    { name: "Riwayat Saya", href: "/dashboard/perawat/history", icon: History },
+    { name: "Riwayat Saya", href: "/dashboard/perawat/riwayat", icon: History },
+    { name: "Notifikasi", href: "/dashboard/perawat/notifikasi", icon: BellRing }, // Menu baru untuk Alert System
   ],
   "Admin PPI": [
     { name: "Analitik HAIs", href: "/dashboard/admin/analytics", icon: BarChart3 },
@@ -48,18 +50,30 @@ export default function Sidebar({ role }: { role: string }) {
         {menus.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
+          const isNotify = item.name === "Notifikasi"; // Cek jika menu adalah Notifikasi
+
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
+              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
                 isActive 
                   ? "bg-blue-600 text-white shadow-md shadow-blue-100" 
                   : "text-slate-500 hover:bg-slate-50 hover:text-blue-600"
               }`}
             >
-              <Icon size={18} strokeWidth={isActive ? 2.5 : 2} />
-              {item.name}
+              <div className="flex items-center gap-3">
+                <Icon size={18} strokeWidth={isActive ? 2.5 : 2} />
+                {item.name}
+              </div>
+              
+              {/* Indikator Pulse khusus menu Notifikasi jika tidak aktif */}
+              {isNotify && !isActive && (
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+              )}
             </Link>
           );
         })}

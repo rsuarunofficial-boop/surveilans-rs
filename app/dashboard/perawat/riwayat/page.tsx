@@ -109,7 +109,7 @@ export default async function RiwayatPage({ searchParams }: Props) {
                           {item.isk > 0 && <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-[9px] rounded border border-red-100 font-bold">ISK</span>}
                           {item.iad > 0 && <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-[9px] rounded border border-red-100 font-bold">IAD</span>}
                           {item.vap > 0 && <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-[9px] rounded border border-red-100 font-bold">VAP</span>}
-                          {item.ido > 0 && <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-[9px] rounded border border-red-100 font-bold">IDO</span>}
+                          {item.hap > 0 && <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-[9px] rounded border border-red-100 font-bold">HAP</span>}
                         </div>
                       </div>
                     </td>

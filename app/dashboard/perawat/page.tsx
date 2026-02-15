@@ -35,7 +35,7 @@ export default async function PerawatDashboard() {
     { name: 'IVL', jumlah: Number(details.ivl || 0) },
     { name: 'ETT', jumlah: Number(details.ett || 0) },
     { name: 'VAP', jumlah: Number(details.vap || 0) },
-    { name: 'IDO', jumlah: Number(details.ido || 0) },
+    { name: 'HAP', jumlah: Number(details.hap || 0) },
     { name: 'ISK', jumlah: Number(details.isk || 0) },
     { name: 'IAD', jumlah: Number(details.iad || 0) },
     { name: 'TB', jumlah: Number(details.tb || 0) },

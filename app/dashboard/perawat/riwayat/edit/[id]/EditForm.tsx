@@ -33,7 +33,7 @@ export default function EditForm({ initialData }: { initialData: any }) {
     isk: initialData.isk || 0,
     iad: initialData.iad || 0,
     vap: initialData.vap || 0,
-    ido: initialData.ido || 0,
+    hap: initialData.hap || 0,
     hasil_kultur: initialData.hasil_kultur || "",
     antibiotik: initialData.antibiotik || "",
   });
@@ -100,7 +100,7 @@ export default function EditForm({ initialData }: { initialData: any }) {
             Temuan Infeksi (HAIs)
           </label>
           <div className="grid grid-cols-2 gap-4">
-            {['isk', 'iad', 'vap', 'ido'].map((field) => (
+            {['isk', 'iad', 'vap', 'hap'].map((field) => (
               <div key={field} className="flex flex-col gap-1">
                 <span className="text-xs font-medium text-slate-500 uppercase">{field}</span>
                 <input 

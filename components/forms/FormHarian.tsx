@@ -20,7 +20,7 @@ type StateRow = {
   ivl: number;
   ett: number;
   vap: number;
-  ido: number; 
+  hap: number; 
   isk: number;
   iad: number;
   tirah_baring: number;
@@ -46,7 +46,7 @@ const OPSI_ANTIBIOTIK = [
 
 // Mendefinisikan kolom checkbox agar TypeScript tidak bingung
 const CHECKBOX_COLUMNS: (keyof StateRow)[] = [
-  'uc', 'cvl', 'ivl', 'ett', 'vap', 'ido', 'isk', 'iad', 'tirah_baring', 'plebitis'
+  'uc', 'cvl', 'ivl', 'ett', 'vap', 'hap', 'isk', 'iad', 'tirah_baring', 'plebitis'
 ];
 
 export default function FormHarian() {
@@ -58,7 +58,7 @@ export default function FormHarian() {
     no_rm: "",
     uc: 0, cvl: 0, ivl: 0, ett: 0,
     vap: 0, 
-    ido: 0, 
+    hap: 0, 
     isk: 0, iad: 0,
     tirah_baring: 0, plebitis: 0,
     hasil_kultur: "", antibiotik: "",
@@ -150,7 +150,7 @@ export default function FormHarian() {
                 <th className="p-2 border-b border-r border-slate-100 text-center text-pink-600">IVL</th>
                 <th className="p-2 border-b border-r border-slate-100 text-center text-pink-600">ETT</th>
                 <th className="p-2 border-b border-r border-slate-100 text-center text-blue-700">VAP</th>
-                <th className="p-2 border-b border-r border-slate-100 text-center text-blue-700">IDO</th>
+                <th className="p-2 border-b border-r border-slate-100 text-center text-blue-700">HAP</th>
                 <th className="p-2 border-b border-r border-slate-100 text-center text-blue-700">ISK</th>
                 <th className="p-2 border-b border-r border-slate-100 text-center text-blue-700">IAD</th>
                 <th className="p-2 border-b border-r border-slate-100 text-center text-amber-600">TB</th>

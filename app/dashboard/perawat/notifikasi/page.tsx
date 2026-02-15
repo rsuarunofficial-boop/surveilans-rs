@@ -1,12 +1,41 @@
 import { AlertCircle, ShieldAlert, ArrowRight, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import { getStatsBulanIni } from "@/services/surveilans";
 
-export default function NotifikasiAmbangBatas() {
-  // Contoh data monitoring unit (Data ini idealnya diambil dari agregasi database)
+export const dynamic = "force-dynamic";
+
+export default async function NotifikasiAmbangBatas() {
+  // Mengambil data real-time dari database
+  const stats = await getStatsBulanIni();
+  
+  // Menggunakan Record<string, number> untuk menghilangkan error garis merah (TypeScript)
+  const details: Record<string, number> = stats?.details || {};
+
+  // Ambang batas yang ditetapkan oleh Komite PPI RS Arun
+  const LIMIT_HAIS = 2;
+
+  // Memetakan data dari database ke format tampilan
   const unitStats = [
-    { jenis: "VAP (Ventilator Associated Pneumonia)", jumlah: 3, limit: 2, status: "High Alert" },
-    { jenis: "IDO (Infeksi Daerah Operasi)", jumlah: 1, limit: 2, status: "Normal" },
-    { jenis: "ISK (Infeksi Saluran Kemih)", jumlah: 0, limit: 2, status: "Normal" },
+    { 
+      jenis: "VAP (Ventilator Associated Pneumonia)", 
+      jumlah: Number(details.vap || 0), 
+      limit: LIMIT_HAIS 
+    },
+    { 
+      jenis: "HAP (Hospital Acquired Pneumonia)", 
+      jumlah: Number(details.hap || 0), 
+      limit: LIMIT_HAIS 
+    },
+    { 
+      jenis: "ISK (Infeksi Saluran Kemih)", 
+      jumlah: Number(details.isk || 0), 
+      limit: LIMIT_HAIS 
+    },
+    { 
+      jenis: "IAD (Infeksi Aliran Darah)", 
+      jumlah: Number(details.iad || 0), 
+      limit: LIMIT_HAIS 
+    },
   ];
 
   return (
@@ -22,45 +51,51 @@ export default function NotifikasiAmbangBatas() {
       </div>
 
       <div className="grid gap-4">
-        {unitStats.map((stat) => (
-          <div 
-            key={stat.jenis} 
-            className={`bg-white p-6 rounded-[2rem] border border-slate-100 flex items-center justify-between transition-all ${
-              stat.status === "High Alert" ? "ring-2 ring-red-500 ring-offset-2 shadow-lg shadow-red-50" : "shadow-sm"
-            }`}
-          >
-            <div className="flex items-start gap-4">
-              <div className={`mt-1 ${stat.status === "High Alert" ? "text-red-500" : "text-emerald-500"}`}>
-                {stat.status === "High Alert" ? <AlertCircle size={24} /> : <TrendingUp size={24} />}
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest leading-none mb-2">
-                  {stat.jenis}
-                </h3>
-                <p className="text-lg font-bold text-slate-800">
-                  {stat.jumlah} Kasus Terdeteksi
-                </p>
-                <p className="text-xs font-medium text-slate-500 mt-1">
-                  Ambang Batas Maksimal: <span className="text-slate-800">{stat.limit} Kasus/Bulan</span>
-                </p>
-              </div>
-            </div>
+        {unitStats.map((stat) => {
+          // Logika penentuan status berdasarkan data database
+          const isHighAlert = stat.jumlah > stat.limit;
+          const status = isHighAlert ? "High Alert" : "Normal";
 
-            {stat.status === "High Alert" && (
-              <div className="hidden md:flex flex-col items-end gap-2 text-right">
-                <span className="px-4 py-1.5 bg-red-500 text-white text-[10px] font-bold rounded-full uppercase tracking-tighter animate-pulse">
-                  High Alert Detected
-                </span>
-                <Link 
-                  href="/dashboard/perawat/riwayat"
-                  className="flex items-center gap-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 transition-colors"
-                >
-                  Tinjau Data Pasien <ArrowRight size={14} />
-                </Link>
+          return (
+            <div 
+              key={stat.jenis} 
+              className={`bg-white p-6 rounded-[2rem] border border-slate-100 flex items-center justify-between transition-all ${
+                status === "High Alert" ? "ring-2 ring-red-500 ring-offset-2 shadow-lg shadow-red-50" : "shadow-sm"
+              }`}
+            >
+              <div className="flex items-start gap-4">
+                <div className={`mt-1 ${status === "High Alert" ? "text-red-500" : "text-emerald-500"}`}>
+                  {status === "High Alert" ? <AlertCircle size={24} /> : <TrendingUp size={24} />}
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest leading-none mb-2">
+                    {stat.jenis}
+                  </h3>
+                  <p className="text-lg font-bold text-slate-800">
+                    {stat.jumlah} Kasus Terdeteksi
+                  </p>
+                  <p className="text-xs font-medium text-slate-500 mt-1">
+                    Ambang Batas Maksimal: <span className="text-slate-800">{stat.limit} Kasus/Bulan</span>
+                  </p>
+                </div>
               </div>
-            )}
-          </div>
-        ))}
+
+              {status === "High Alert" && (
+                <div className="hidden md:flex flex-col items-end gap-2 text-right">
+                  <span className="px-4 py-1.5 bg-red-500 text-white text-[10px] font-bold rounded-full uppercase tracking-tighter animate-pulse">
+                    High Alert Detected
+                  </span>
+                  <Link 
+                    href="/dashboard/perawat/riwayat"
+                    className="flex items-center gap-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                  >
+                    Tinjau Data Pasien <ArrowRight size={14} />
+                  </Link>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Instruksi Tindakan Pencegahan */}

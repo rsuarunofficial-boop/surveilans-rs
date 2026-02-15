@@ -15,10 +15,11 @@ import {
 
 const menuByRole = {
   Perawat: [
-    { name: "Dashboard", href: "/dashboard/perawat", icon: LayoutDashboard },
-    { name: "Form Surveilans", href: "/dashboard/perawat/form", icon: ClipboardList },
-    { name: "Riwayat Saya", href: "/dashboard/perawat/riwayat", icon: History },
-    { name: "Notifikasi", href: "/dashboard/perawat/notifikasi", icon: BellRing }, // Menu baru untuk Alert System
+  { name: "Dashboard", href: "/dashboard/perawat", icon: LayoutDashboard },
+  { name: "Form Surveilans", href: "/dashboard/perawat/form", icon: ClipboardList },
+  { name: "Laporan Bulanan", href: "/dashboard/perawat/laporan", icon: BarChart3 }, // Menu Baru
+  { name: "Riwayat Saya", href: "/dashboard/perawat/riwayat", icon: History },
+  { name: "Notifikasi", href: "/dashboard/perawat/notifikasi", icon: BellRing },
   ],
   "Admin PPI": [
     { name: "Analitik HAIs", href: "/dashboard/admin/analytics", icon: BarChart3 },

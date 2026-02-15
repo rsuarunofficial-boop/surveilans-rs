@@ -124,14 +124,7 @@ export default async function LaporanBulananLengkap() {
         </div>
 
         {/* Gunakan flex (bukan hidden md:flex) agar muncul di semua layar */}
-<div className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto order-1 md:order-2">
-  <button className="w-full md:w-auto flex items-center justify-center gap-2 bg-emerald-600 ...">
-    <FileSpreadsheet size={18} /> Download Excel
-  </button>
-  <button className="w-full md:w-auto flex items-center justify-center gap-2 bg-red-600 ...">
-    <Download size={18} /> Download PDF
-  </button>
-</div>
+
       </div>
     </div>
   );

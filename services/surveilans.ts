@@ -140,7 +140,7 @@ export async function getStatsBulanIni() {
   return {
     totalPasien: totalPasienUnik,
     totalTindakan: (details.uc + details.cvl + details.ivl + details.ett),
-    potensiHais: (uniqueVap + uniqueHap + uniqueHap + uniqueIsk + uniqueIad),
+    potensiHais: (uniqueVap + uniqueHap + uniqueIsk + uniqueIad),
     details 
   };
 }

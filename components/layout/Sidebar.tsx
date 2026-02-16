@@ -10,26 +10,36 @@ import {
   Files, 
   Settings, 
   Hospital,
-  BellRing // Import ikon untuk notifikasi ambang batas
+  BellRing,
+  CheckCircle,
+  Building2,
+  Users,
+  Database
 } from "lucide-react";
 
 const menuByRole = {
   Perawat: [
-  { name: "Dashboard", href: "/dashboard/perawat", icon: LayoutDashboard },
-  { name: "Form Surveilans", href: "/dashboard/perawat/form", icon: ClipboardList },
-  { name: "Laporan Bulanan", href: "/dashboard/perawat/laporan", icon: BarChart3 }, // Menu Baru
-  { name: "Riwayat Saya", href: "/dashboard/perawat/riwayat", icon: History },
-  { name: "Notifikasi", href: "/dashboard/perawat/notifikasi", icon: BellRing },
+    { name: "Dashboard", href: "/dashboard/perawat", icon: LayoutDashboard },
+    { name: "Form Surveilans", href: "/dashboard/perawat/form", icon: ClipboardList },
+    { name: "Laporan Bulanan", href: "/dashboard/perawat/laporan", icon: BarChart3 },
+    { name: "Riwayat Saya", href: "/dashboard/perawat/riwayat", icon: History },
+    { name: "Notifikasi", href: "/dashboard/perawat/notifikasi", icon: BellRing },
   ],
-  "Admin PPI": [
-    { name: "Analitik HAIs", href: "/dashboard/admin/analytics", icon: BarChart3 },
-    { name: "Semua Laporan", href: "/dashboard/admin/reports", icon: Files },
+  PPI: [
+    { name: "Dashboard PPI", href: "/dashboard/ppi", icon: LayoutDashboard },
+    { name: "Verifikasi Data", href: "/dashboard/ppi/verifikasi", icon: CheckCircle },
+    { name: "Rekap Laporan", href: "/dashboard/ppi/rekap", icon: Files },
+  ],
+  Admin: [
+    { name: "Manajemen User", href: "/dashboard/admin/users", icon: Users },
     { name: "Master Ruangan", href: "/dashboard/admin/rooms", icon: Hospital },
+    { name: "Log Sistem", href: "/dashboard/admin/logs", icon: Database },
   ],
 };
 
 export default function Sidebar({ role }: { role: string }) {
   const pathname = usePathname();
+  // Mengambil menu berdasarkan role yang tepat (Perawat, PPI, atau Admin)
   const menus = menuByRole[role as keyof typeof menuByRole] || [];
 
   return (
@@ -47,11 +57,14 @@ export default function Sidebar({ role }: { role: string }) {
       </div>
 
       <nav className="flex-1 px-4 space-y-1">
-        <p className="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Main Menu</p>
+        <p className="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+          {role} Menu
+        </p>
+        
         {menus.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
-          const isNotify = item.name === "Notifikasi"; // Cek jika menu adalah Notifikasi
+          const isNotify = item.name === "Notifikasi";
 
           return (
             <Link
@@ -68,7 +81,6 @@ export default function Sidebar({ role }: { role: string }) {
                 {item.name}
               </div>
               
-              {/* Indikator Pulse khusus menu Notifikasi jika tidak aktif */}
               {isNotify && !isActive && (
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>

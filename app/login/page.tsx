@@ -35,15 +35,17 @@ export default function LoginPage() {
       return;
     }
 
-    // 2. Ambil Data Profile (Role & Ruangan) setelah login berhasil
+    // 2. Ambil Data Profile (Role) setelah login berhasil
     const { data: profile } = await supabase
       .from("profiles")
       .select("role")
       .eq("id", data.user.id)
       .single();
 
-    // 3. Redirect Otomatis Berdasarkan Role
-    if (profile?.role === "Admin") {
+    // 3. Redirect Otomatis Berdasarkan Role (Case Sensitive sesuai Database)
+    if (profile?.role === "PPI") {
+      router.push("/dashboard/ppi");
+    } else if (profile?.role === "Admin") {
       router.push("/dashboard/admin");
     } else if (profile?.role === "Manager") {
       router.push("/dashboard/manager");

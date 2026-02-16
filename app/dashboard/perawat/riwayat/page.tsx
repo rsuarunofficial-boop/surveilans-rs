@@ -5,7 +5,7 @@ import {
   ChevronLeft, 
   ChevronRight,
   Database,
-  User
+  Lock
 } from "lucide-react";
 import Link from "next/link";
 import DeleteButton from "./DeleteButton";
@@ -114,22 +114,31 @@ export default async function RiwayatPage({ searchParams }: Props) {
                       </div>
                     </td>
                     <td className="p-4 text-[11px]">
-                      <div className="flex flex-col gap-1 text-slate-600 font-medium leading-relaxed">
-                        {item.lainnya && <p><span className="text-slate-400 italic">Lainnya:</span> {item.lainnya}</p>}
-                        {item.hasil_kultur && <p><span className="text-slate-400 italic">Kultur:</span> {item.hasil_kultur}</p>}
-                        {item.antibiotik && <p><span className="text-slate-400 italic">Abx:</span> {item.antibiotik}</p>}
+                      <div className="flex flex-col gap-1 text-slate-600 font-medium leading-relaxed max-w-[200px]">
+                        {item.lainnya && <p className="truncate"><span className="text-slate-400 italic">Lainnya:</span> {item.lainnya}</p>}
+                        {item.hasil_kultur && <p className="truncate"><span className="text-slate-400 italic">Kultur:</span> {item.hasil_kultur}</p>}
+                        {item.antibiotik && <p className="truncate"><span className="text-slate-400 italic">Abx:</span> {item.antibiotik}</p>}
                         {!item.lainnya && !item.hasil_kultur && !item.antibiotik && <span className="text-slate-300 italic">-</span>}
                       </div>
                     </td>
                     <td className="p-4 text-right">
                       <div className="flex justify-end gap-1">
-                        <Link 
-                          href={`/dashboard/perawat/riwayat/edit/${item.id}`}
-                          className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
-                        >
-                          <FileEdit size={16} />
-                        </Link>
-                        <DeleteButton id={item.id} />
+                        {!item.is_verified ? (
+                          <>
+                            <Link 
+                              href={`/dashboard/perawat/riwayat/edit/${item.id}`}
+                              className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                            >
+                              <FileEdit size={16} />
+                            </Link>
+                            <DeleteButton id={item.id} />
+                          </>
+                        ) : (
+                          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 rounded-xl border border-slate-100 group-hover:bg-white transition-all cursor-not-allowed">
+                             <Lock size={12} className="text-slate-300" />
+                             <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest italic">Locked</span>
+                          </div>
+                        )}
                       </div>
                     </td>
                   </tr>
@@ -139,6 +148,7 @@ export default async function RiwayatPage({ searchParams }: Props) {
           </table>
         </div>
 
+        {/* PAGINATION FOOTER */}
         <div className="p-4 bg-slate-50/50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">
           <p>Halaman {currentPage} Dari {totalPages || 1} — Total {totalData} Data</p>
           <div className="flex items-center gap-2">

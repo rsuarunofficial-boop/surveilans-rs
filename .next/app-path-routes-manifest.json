@@ -1,0 +1,16 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/dashboard/perawat/form/page": "/dashboard/perawat/form",
+  "/dashboard/perawat/laporan/page": "/dashboard/perawat/laporan",
+  "/dashboard/perawat/notifikasi/page": "/dashboard/perawat/notifikasi",
+  "/dashboard/perawat/page": "/dashboard/perawat",
+  "/dashboard/perawat/riwayat/edit/[id]/page": "/dashboard/perawat/riwayat/edit/[id]",
+  "/dashboard/perawat/riwayat/page": "/dashboard/perawat/riwayat",
+  "/dashboard/ppi/page": "/dashboard/ppi",
+  "/dashboard/ppi/rekap/page": "/dashboard/ppi/rekap",
+  "/dashboard/ppi/verifikasi/page": "/dashboard/ppi/verifikasi",
+  "/favicon.ico/route": "/favicon.ico",
+  "/login/page": "/login",
+  "/page": "/"
+}

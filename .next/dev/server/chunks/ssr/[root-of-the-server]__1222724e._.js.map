@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/projects/surveilans-rs/app/page.tsx"],"sourcesContent":["import { redirect } from \"next/navigation\";\n\nexport default function Home() {\n  // Otomatis mengalihkan akses ke halaman login\n  redirect(\"/login\");\n}"],"names":[],"mappings":";;;;AAAA;AAAA;;AAEe,SAAS;IACtB,8CAA8C;IAC9C,IAAA,iMAAQ,EAAC;AACX"}}]
+}

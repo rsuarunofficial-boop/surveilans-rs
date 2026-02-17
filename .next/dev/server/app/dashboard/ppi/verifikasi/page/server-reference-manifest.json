@@ -1,0 +1,80 @@
+{
+  "node": {
+    "00605513bd2364a94837aa6056ace5afb153dba9d8": {
+      "workers": {
+        "app/dashboard/ppi/verifikasi/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/ppi/verifikasi/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/ppi.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getPPIDashboardStats",
+          "filename": "services/ppi.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/ppi/verifikasi/page": "rsc"
+      },
+      "exportedName": "getPPIDashboardStats",
+      "filename": "services/ppi.ts"
+    },
+    "00df386678a8b878f770dc7ae2bcfe087f8f98f7ce": {
+      "workers": {
+        "app/dashboard/ppi/verifikasi/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/ppi/verifikasi/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/ppi.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getDaftarRuangan",
+          "filename": "services/ppi.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/ppi/verifikasi/page": "rsc"
+      },
+      "exportedName": "getDaftarRuangan",
+      "filename": "services/ppi.ts"
+    },
+    "408ef60d97834565c6e63ba65a1b3f1e4a4ff2ffbf": {
+      "workers": {
+        "app/dashboard/ppi/verifikasi/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/ppi/verifikasi/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/ppi.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "verifySurveilansBatch",
+          "filename": "services/ppi.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/ppi/verifikasi/page": "action-browser"
+      },
+      "exportedName": "verifySurveilansBatch",
+      "filename": "services/ppi.ts"
+    },
+    "40b2a7895c5c1e365d2132a26fe1327f5478b3d911": {
+      "workers": {
+        "app/dashboard/ppi/verifikasi/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/ppi/verifikasi/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/ppi.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getPendingVerification",
+          "filename": "services/ppi.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/ppi/verifikasi/page": "rsc"
+      },
+      "exportedName": "getPendingVerification",
+      "filename": "services/ppi.ts"
+    },
+    "40f256160afbb895b6586c076743c8a7746205c936": {
+      "workers": {
+        "app/dashboard/ppi/verifikasi/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/ppi/verifikasi/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/ppi.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getGlobalReports",
+          "filename": "services/ppi.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/ppi/verifikasi/page": "rsc"
+      },
+      "exportedName": "getGlobalReports",
+      "filename": "services/ppi.ts"
+    }
+  },
+  "edge": {}
+}

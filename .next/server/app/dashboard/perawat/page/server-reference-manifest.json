@@ -1,0 +1,95 @@
+{
+  "node": {
+    "00d2ba7a54e125d8cbfe5661ed314dd296e3ae38e2": {
+      "workers": {
+        "app/dashboard/perawat/page": {
+          "moduleId": 6907,
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/page": "rsc"
+      },
+      "exportedName": "getRiwayatSurveilans",
+      "filename": "services/surveilans.ts"
+    },
+    "00fa6db15925398c96b48b3035c493a1b6357241b5": {
+      "workers": {
+        "app/dashboard/perawat/page": {
+          "moduleId": 6907,
+          "async": false,
+          "exportedName": "getStatsBulanIni",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/page": "rsc"
+      },
+      "exportedName": "getStatsBulanIni",
+      "filename": "services/surveilans.ts"
+    },
+    "40069cfbce06fc883e933301c08d3d5e8b45438733": {
+      "workers": {
+        "app/dashboard/perawat/page": {
+          "moduleId": 6907,
+          "async": false,
+          "exportedName": "getSurveilansById",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/page": "rsc"
+      },
+      "exportedName": "getSurveilansById",
+      "filename": "services/surveilans.ts"
+    },
+    "4014eec4915478cf95c49009778aaeb934644b2823": {
+      "workers": {
+        "app/dashboard/perawat/page": {
+          "moduleId": 6907,
+          "async": false,
+          "exportedName": "saveSurveilansMassal",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/page": "rsc"
+      },
+      "exportedName": "saveSurveilansMassal",
+      "filename": "services/surveilans.ts"
+    },
+    "40bebf6dd1f5623b99b0496766464087d87cf12e25": {
+      "workers": {
+        "app/dashboard/perawat/page": {
+          "moduleId": 6907,
+          "async": false,
+          "exportedName": "deleteSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/page": "rsc"
+      },
+      "exportedName": "deleteSurveilans",
+      "filename": "services/surveilans.ts"
+    },
+    "60e90c393283d82a99d88075c5de0fbdb59814d000": {
+      "workers": {
+        "app/dashboard/perawat/page": {
+          "moduleId": 6907,
+          "async": false,
+          "exportedName": "updateSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/page": "rsc"
+      },
+      "exportedName": "updateSurveilans",
+      "filename": "services/surveilans.ts"
+    }
+  },
+  "edge": {}
+}

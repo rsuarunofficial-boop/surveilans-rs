@@ -1,0 +1,20 @@
+{
+  "node": {
+    "4014eec4915478cf95c49009778aaeb934644b2823": {
+      "workers": {
+        "app/dashboard/perawat/form/page": {
+          "moduleId": 92241,
+          "async": false,
+          "exportedName": "saveSurveilansMassal",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/form/page": "action-browser"
+      },
+      "exportedName": "saveSurveilansMassal",
+      "filename": "services/surveilans.ts"
+    }
+  },
+  "edge": {}
+}

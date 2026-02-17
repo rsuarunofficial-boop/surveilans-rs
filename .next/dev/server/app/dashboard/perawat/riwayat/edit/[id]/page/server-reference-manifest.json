@@ -1,0 +1,95 @@
+{
+  "node": {
+    "0082d32780db67842f9a72eb0277a91b4c9b793b06": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/edit/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": "rsc"
+      },
+      "exportedName": "getRiwayatSurveilans",
+      "filename": "services/surveilans.ts"
+    },
+    "0084f58216762db8087f27ec699f91b0ded6e722d0": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/edit/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStatsBulanIni",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": "rsc"
+      },
+      "exportedName": "getStatsBulanIni",
+      "filename": "services/surveilans.ts"
+    },
+    "404056775b03666f4e38a79d3f951509bfce91a3c2": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/edit/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getSurveilansById",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": "rsc"
+      },
+      "exportedName": "getSurveilansById",
+      "filename": "services/surveilans.ts"
+    },
+    "4088da21258b1a0a6c6ccceebb1c973932977c93d9": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/edit/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": "rsc"
+      },
+      "exportedName": "deleteSurveilans",
+      "filename": "services/surveilans.ts"
+    },
+    "40c8c99513fc96d514be283f7074a2ff43459c7d4c": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/edit/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "saveSurveilansMassal",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": "rsc"
+      },
+      "exportedName": "saveSurveilansMassal",
+      "filename": "services/surveilans.ts"
+    },
+    "60820376b48fe913469271f8d2597f6eddb0154788": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/edit/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/edit/[id]/page": "action-browser"
+      },
+      "exportedName": "updateSurveilans",
+      "filename": "services/surveilans.ts"
+    }
+  },
+  "edge": {}
+}

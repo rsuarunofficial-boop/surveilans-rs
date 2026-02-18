@@ -15,6 +15,21 @@
       "exportedName": "getRiwayatSurveilans",
       "filename": "services/surveilans.ts"
     },
+    "00ebe08555dd0dd6c565c6c313a88439d0cfc3ecdf": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/page": {
+          "moduleId": 79295,
+          "async": false,
+          "exportedName": "getLatestPasienByUnit",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/page": "rsc"
+      },
+      "exportedName": "getLatestPasienByUnit",
+      "filename": "services/surveilans.ts"
+    },
     "00fa6db15925398c96b48b3035c493a1b6357241b5": {
       "workers": {
         "app/dashboard/perawat/riwayat/page": {

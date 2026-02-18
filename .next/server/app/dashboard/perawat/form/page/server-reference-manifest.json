@@ -14,6 +14,21 @@
       },
       "exportedName": "saveSurveilansMassal",
       "filename": "services/surveilans.ts"
+    },
+    "00ebe08555dd0dd6c565c6c313a88439d0cfc3ecdf": {
+      "workers": {
+        "app/dashboard/perawat/form/page": {
+          "moduleId": 92241,
+          "async": false,
+          "exportedName": "getLatestPasienByUnit",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/form/page": "action-browser"
+      },
+      "exportedName": "getLatestPasienByUnit",
+      "filename": "services/surveilans.ts"
     }
   },
   "edge": {}

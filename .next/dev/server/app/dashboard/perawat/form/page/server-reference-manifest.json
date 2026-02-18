@@ -14,6 +14,21 @@
       },
       "exportedName": "saveSurveilansMassal",
       "filename": "services/surveilans.ts"
+    },
+    "00b8c5a825ebca5319a2f5d5bcc305bfb4a5bffbef": {
+      "workers": {
+        "app/dashboard/perawat/form/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/form/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getLatestPasienByUnit",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/form/page": "action-browser"
+      },
+      "exportedName": "getLatestPasienByUnit",
+      "filename": "services/surveilans.ts"
     }
   },
   "edge": {}

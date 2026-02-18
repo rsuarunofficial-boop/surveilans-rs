@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { saveSurveilansMassal } from "@/services/surveilans";
+import { saveSurveilansMassal, getLatestPasienByUnit } from "@/services/surveilans";
 import { 
   Plus, 
   Trash2, 
   Save, 
   Calendar, 
   UserPlus, 
-  Info
+  Info,
+  Copy,
+  Loader2
 } from "lucide-react";
 
 // Tipe data harus sesuai dengan kolom di database
@@ -51,6 +53,7 @@ const CHECKBOX_COLUMNS: (keyof StateRow)[] = [
 
 export default function FormHarian() {
   const [loading, setLoading] = useState(false);
+  const [loadingCopy, setLoadingCopy] = useState(false);
   const [tanggal, setTanggal] = useState("");
 
   const rowTemplate: StateRow = {
@@ -76,6 +79,23 @@ export default function FormHarian() {
     const updatedRows = [...rows];
     updatedRows[index] = { ...updatedRows[index], [field]: value };
     setRows(updatedRows);
+  };
+
+  // FITUR BARU: Mengambil data pasien terakhir di unit tersebut
+  const handleCopyDataKemarin = async () => {
+    setLoadingCopy(true);
+    try {
+      const dataKemarin = await getLatestPasienByUnit();
+      if (dataKemarin && dataKemarin.length > 0) {
+        setRows(dataKemarin);
+      } else {
+        alert("Tidak ditemukan data inputan sebelumnya di unit Anda.");
+      }
+    } catch (err) {
+      alert("Gagal memuat data kemarin.");
+    } finally {
+      setLoadingCopy(false);
+    }
   };
 
   const handleSave = async () => {
@@ -124,11 +144,23 @@ export default function FormHarian() {
 
       {/* Container Tabel */}
       <div className="bg-white rounded-[2rem] border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)] overflow-hidden">
-        <div className="p-6 border-b border-slate-50 flex items-center gap-3">
-          <div className="w-8 h-8 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
-            <UserPlus size={18} />
+        <div className="p-6 border-b border-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="w-8 h-8 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
+              <UserPlus size={18} />
+            </div>
+            <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight">Daftar Pasien Surveilans</h2>
           </div>
-          <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight">Daftar Pasien Surveilans</h2>
+          
+          {/* Tombol Muat Data Kemarin */}
+          <button
+            onClick={handleCopyDataKemarin}
+            disabled={loadingCopy}
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-amber-50 text-amber-600 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest border border-amber-100 hover:bg-amber-100 transition-all active:scale-95 disabled:opacity-50"
+          >
+            {loadingCopy ? <Loader2 size={14} className="animate-spin" /> : <Copy size={14} />}
+            {loadingCopy ? "Memproses..." : "Muat Data Kemarin"}
+          </button>
         </div>
 
         <div className="overflow-x-auto">

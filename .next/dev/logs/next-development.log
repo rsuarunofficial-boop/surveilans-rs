@@ -1,6 +1,349 @@
-[00:00:01.921] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.089] Server  LOG     ✓ Ready in 1637ms
-[00:00:13.730] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:14.748] Browser ERROR   {"__isAuthError":true,"code":"refresh_token_not_found","name":"AuthApiError","status":400}
-[00:00:20.819] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:24.922] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:02.383] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:02.608] Server  LOG     ✓ Ready in 2s
+[00:05:08.392] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:13.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:27.336] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:07:27.336] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:14:59.216] Server  LOG     ✓ Compiled in 395ms
+[00:19:13.720] Server  LOG     ✓ Compiled in 175ms
+[00:26:13.003] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:26:13.004] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[02:24:09.610] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:42
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:659:11
+    at new Promise (<anonymous>)
+    at retryable (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:641:21)
+    at SupabaseAuthClient._refreshAccessToken (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4822:224)
+    at SupabaseAuthClient._callRefreshToken (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4978:48)
+    at SupabaseAuthClient.__loadSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4112:57)
+    at async SupabaseAuthClient._useSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4042:28)
+    at async SupabaseAuthClient._emitInitialSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4602:16) {
+  
+}
+[02:24:09.708] Server  LOG     ✓ Compiled in 209ms
+[02:24:09.823] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:10.244] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:11.058] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:12.676] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:15.881] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:22.294] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:23.557] Browser ERROR   {}
+[02:24:23.778] Browser ERROR   {}
+[02:24:24.191] Browser ERROR   {}
+[02:24:25.027] Browser ERROR   {}
+[02:24:25.271] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:42
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:659:11
+    at new Promise (<anonymous>)
+    at retryable (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:641:21)
+    at SupabaseAuthClient._refreshAccessToken (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4822:224)
+    at SupabaseAuthClient._callRefreshToken (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4978:48)
+    at SupabaseAuthClient.__loadSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4112:57)
+    at async SupabaseAuthClient._useSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4042:28)
+    at async SupabaseAuthClient._emitInitialSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4602:16) {
+  
+}
+[02:24:25.300] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:42
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:659:11
+    at new Promise (<anonymous>)
+    at retryable (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:641:21)
+    at SupabaseAuthClient._refreshAccessToken (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4822:224)
+    at SupabaseAuthClient._callRefreshToken (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4978:48)
+    at SupabaseAuthClient.__loadSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4112:57)
+    at async SupabaseAuthClient._useSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4042:28)
+    at async SupabaseAuthClient._emitInitialSession (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4602:16) {
+  
+}
+[02:24:25.482] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:25.513] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:25.890] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:25.920] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:26.266] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/dashboard/perawat/form. Falling back to browser navigation. {}
+[02:24:26.266] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/dashboard/perawat/form. Falling back to browser navigation. {}
+[02:24:26.266] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/dashboard/perawat/form. Falling back to browser navigation. {}
+[02:24:26.266] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/dashboard/perawat/form. Falling back to browser navigation. {}
+[02:24:26.266] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/dashboard/perawat/form. Falling back to browser navigation. {}
+[02:24:26.641] Browser ERROR   {}
+[02:24:26.702] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:26.733] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:28.308] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:28.341] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:29.859] Browser ERROR   {}
+[02:24:31.526] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:31.558] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:35.110] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:35.213] Server  ERROR   AuthRetryableFetchError: fetch failed
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 0,
+  code: undefined
+}
+[02:24:35.250] Server  ERROR   AuthRetryableFetchError: fetch failed
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 0,
+  code: undefined
+}
+[02:24:36.277] Browser ERROR   {}
+[02:24:37.940] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:37.973] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:42.357] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:24:44.029] Browser ERROR   {}
+[02:24:44.263] Browser ERROR   {}
+[02:24:44.671] Browser ERROR   {}
+[02:24:45.497] Browser ERROR   {}
+[02:24:47.108] Browser ERROR   {}
+[02:24:50.306] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:24:50.470] Browser ERROR   {}
+[02:24:50.704] Browser ERROR   {}
+[02:24:50.756] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:50.788] Server  ERROR   AuthRetryableFetchError: fetch failed
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 0,
+  code: undefined
+}
+[02:24:50.818] Server  ERROR   AuthRetryableFetchError: fetch failed
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 0,
+  code: undefined
+}
+[02:24:50.825] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\projects\surveilans-rs\node_modules\next\dist\server\web\sandbox\context.js:321:60)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:577:23
+    at _handleRequest (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:931:24)
+    at _request (D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:918:24)
+    at D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:4827:225
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processTimers (node:internal/timers:538:9)
+    at async D:\projects\surveilans-rs\.next\dev\server\edge\chunks\node_modules_@supabase_auth-js_dist_module_33c852e9._.js:647:36 {
+  
+}
+[02:24:50.871] Server  ERROR   AuthRetryableFetchError: fetch failed
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 0,
+  code: undefined
+}
+[02:24:50.923] Server  ERROR   AuthRetryableFetchError: fetch failed
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 0,
+  code: undefined
+}
+[02:24:51.114] Browser ERROR   {}
+[02:24:52.132] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:24:52.291] Browser ERROR   {}
+[02:24:52.510] Browser ERROR   {}
+[02:24:52.931] Browser ERROR   {}
+[02:24:53.756] Browser ERROR   {}
+[02:24:55.372] Browser ERROR   {}
+[02:24:58.594] Browser ERROR   {}
+[02:25:05.005] Browser ERROR   {}
+[02:25:17.881] Browser ERROR   {}
+[02:25:17.881] Browser ERROR   {"__isAuthError":true,"name":"AuthRetryableFetchError","status":0}
+[02:25:17.881] Browser ERROR   {}
+[02:25:18.100] Browser ERROR   {}
+[02:25:18.522] Browser ERROR   {}
+[02:25:19.321] Browser ERROR   {}
+[02:25:20.951] Browser ERROR   {}
+[02:25:24.161] Browser ERROR   {}
+[02:25:31.649] Browser ERROR   {}
+[02:25:46.237] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:26:01.513] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[02:26:01.513] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.

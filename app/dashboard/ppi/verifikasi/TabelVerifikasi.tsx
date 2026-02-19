@@ -1,19 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, AlertCircle, Calendar } from "lucide-react";
+import { CheckCircle2, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { verifySurveilansBatch } from "@/services/ppi";
 import { useRouter } from "next/navigation";
 
 export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
+
+  // Konfigurasi Paginasi
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  
+  // Mengambil data untuk halaman aktif
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentData = data.slice(startIndex, startIndex + itemsPerPage);
 
   const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      const allIds = data.map((item) => item.id);
-      setSelectedIds(allIds);
+      // Hanya pilih ID yang ada di halaman saat ini (currentData)
+      const currentIds = currentData.map((item) => item.id);
+      setSelectedIds(currentIds);
     } else {
       setSelectedIds([]);
     }
@@ -83,7 +93,7 @@ export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
                 <input
                   type="checkbox"
                   onChange={handleSelectAll}
-                  checked={data.length > 0 && selectedIds.length === data.length}
+                  checked={currentData.length > 0 && selectedIds.length === currentData.length}
                   className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-600"
                 />
               </th>
@@ -92,19 +102,20 @@ export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
               <th className="p-4 border-b border-slate-100">Pasien</th>
               <th className="p-4 border-b border-slate-100">Unit / Ruangan</th>
               <th className="p-4 border-b border-slate-100 text-center">Tindakan & HAIs</th>
+              <th className="p-4 border-b border-slate-100 text-center">Lainnya</th>
               <th className="p-4 border-b border-slate-100">Keterangan Klinis</th>
-              <th className="p-4 border-b border-slate-100">Status</th>
+              <th className="p-4 border-b border-slate-100 text-center">Status</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-50">
-            {data.length === 0 ? (
+            {currentData.length === 0 ? (
               <tr>
-                <td colSpan={8} className="p-12 text-center text-slate-400 font-medium italic text-sm">
+                <td colSpan={9} className="p-12 text-center text-slate-400 font-medium italic text-sm">
                   Belum ada data laporan yang ditemukan.
                 </td>
               </tr>
             ) : (
-              data.map((row, index) => (
+              currentData.map((row, index) => (
                 <tr key={row.id} className="hover:bg-slate-50/30 transition-colors group">
                   <td className="p-4 text-center">
                     <input
@@ -115,7 +126,7 @@ export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
                     />
                   </td>
                   <td className="p-4 text-center text-[11px] font-semibold text-slate-400">
-                    {index + 1}
+                    {startIndex + index + 1}
                   </td>
                   <td className="p-4">
                     <div className="flex items-center gap-3">
@@ -139,7 +150,6 @@ export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
                     </span>
                   </td>
 
-                  {/* TINDAKAN & HAIS - UKURAN MIKRO */}
                   <td className="p-4 text-center">
                     <div className="flex flex-col items-center gap-1">
                       <div className="flex justify-center gap-1">
@@ -157,16 +167,28 @@ export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
                     </div>
                   </td>
 
+                  <td className="p-4 text-center">
+                    <div className="flex justify-center gap-1">
+                      {row.tirah_baring > 0 && (
+                        <span className="px-1.5 py-0.5 bg-amber-50 text-amber-600 text-[9px] rounded border border-amber-100 font-black uppercase tracking-tighter">TB</span>
+                      )}
+                      {row.plebitis > 0 && (
+                        <span className="px-1.5 py-0.5 bg-orange-50 text-orange-600 text-[9px] rounded border border-orange-100 font-black uppercase tracking-tighter">PLB</span>
+                      )}
+                      {(!row.tirah_baring && !row.plebitis) && (
+                        <span className="text-slate-300 italic text-[10px]">-</span>
+                      )}
+                    </div>
+                  </td>
+
                   <td className="p-4 text-[11px]">
                     <div className="flex flex-col gap-1 text-slate-600 font-medium leading-relaxed max-w-[200px]">
-                      {row.hasil_kultur && <p className="truncate"><span className="text-slate-400 italic font-medium tracking-tight text-[9px]">Abx:</span> {row.hasil_kultur}</p>}
+                      {row.hasil_kultur && <p className="truncate"><span className="text-slate-400 italic font-medium tracking-tight text-[9px]">Kultur:</span> {row.hasil_kultur}</p>}
                       {row.antibiotik && <p className="truncate"><span className="text-slate-400 italic font-medium tracking-tight text-[9px]">Abx:</span> {row.antibiotik}</p>}
-                      {row.lainnya && <p className="truncate"><span className="text-slate-400 italic font-medium tracking-tight text-[9px]">Lain:</span> {row.lainnya}</p>}
-                      {!row.hasil_kultur && !row.antibiotik && !row.lainnya && <span className="text-slate-200 italic">-</span>}
+                      {!row.hasil_kultur && !row.antibiotik && <span className="text-slate-200 italic">-</span>}
                     </div>
                   </td>
                   
-                  {/* STATUS COMPACT - MERAPATKAN ROW */}
                   <td className="p-4 text-center">
                     <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-50 text-amber-600 border border-amber-100">
                       <span className="text-[9px] font-bold uppercase tracking-tight leading-none font-sans">Pending</span>
@@ -178,6 +200,31 @@ export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
           </tbody>
         </table>
       </div>
+
+      {/* FOOTER PAGINATION */}
+      {data.length > itemsPerPage && (
+        <div className="p-6 border-t border-slate-50 bg-slate-50/30 flex items-center justify-between">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">
+            Halaman {currentPage} dari {totalPages}
+          </p>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-all shadow-sm"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-all shadow-sm"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -64,6 +64,7 @@ export default async function RiwayatPage({ searchParams }: Props) {
                 <th className="p-4 border-b border-slate-100">Tanggal</th>
                 <th className="p-4 border-b border-slate-100">Pasien</th>
                 <th className="p-4 border-b border-slate-100 text-center">Tindakan & HAIs</th>
+                <th className="p-4 border-b border-slate-100 text-center">Lainnya</th>
                 <th className="p-4 border-b border-slate-100">Keterangan Klinis</th>
                 <th className="p-4 border-b border-slate-100 text-right">Aksi</th>
               </tr>
@@ -71,7 +72,7 @@ export default async function RiwayatPage({ searchParams }: Props) {
             <tbody className="divide-y divide-slate-50">
               {paginatedData.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="p-12 text-center text-slate-400 italic text-sm">
+                  <td colSpan={7} className="p-12 text-center text-slate-400 italic text-sm">
                     Belum ada data laporan yang ditemukan.
                   </td>
                 </tr>
@@ -113,12 +114,25 @@ export default async function RiwayatPage({ searchParams }: Props) {
                         </div>
                       </div>
                     </td>
+                    {/* KOLOM BARU: LAINNYA (TB & PLB) */}
+                    <td className="p-4 text-center">
+                      <div className="flex justify-center gap-1">
+                        {item.tirah_baring > 0 && (
+                          <span className="px-1.5 py-0.5 bg-amber-50 text-amber-600 text-[9px] rounded border border-amber-100 font-black uppercase tracking-tighter">TB</span>
+                        )}
+                        {item.plebitis > 0 && (
+                          <span className="px-1.5 py-0.5 bg-orange-50 text-orange-600 text-[9px] rounded border border-orange-100 font-black uppercase tracking-tighter">PLB</span>
+                        )}
+                        {(!item.tirah_baring && !item.plebitis) && (
+                          <span className="text-slate-300 italic text-[10px]">-</span>
+                        )}
+                      </div>
+                    </td>
                     <td className="p-4 text-[11px]">
                       <div className="flex flex-col gap-1 text-slate-600 font-medium leading-relaxed max-w-[200px]">
-                        {item.lainnya && <p className="truncate"><span className="text-slate-400 italic">Lainnya:</span> {item.lainnya}</p>}
                         {item.hasil_kultur && <p className="truncate"><span className="text-slate-400 italic">Kultur:</span> {item.hasil_kultur}</p>}
                         {item.antibiotik && <p className="truncate"><span className="text-slate-400 italic">Abx:</span> {item.antibiotik}</p>}
-                        {!item.lainnya && !item.hasil_kultur && !item.antibiotik && <span className="text-slate-300 italic">-</span>}
+                        {!item.hasil_kultur && !item.antibiotik && <span className="text-slate-300 italic">-</span>}
                       </div>
                     </td>
                     <td className="p-4 text-right">

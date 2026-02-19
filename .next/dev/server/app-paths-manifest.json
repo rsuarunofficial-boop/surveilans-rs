@@ -4,6 +4,9 @@
   "/dashboard/perawat/page": "app/dashboard/perawat/page.js",
   "/dashboard/perawat/riwayat/edit/[id]/page": "app/dashboard/perawat/riwayat/edit/[id]/page.js",
   "/dashboard/perawat/riwayat/page": "app/dashboard/perawat/riwayat/page.js",
+  "/dashboard/ppi/page": "app/dashboard/ppi/page.js",
+  "/dashboard/ppi/rekap/page": "app/dashboard/ppi/rekap/page.js",
+  "/dashboard/ppi/verifikasi/page": "app/dashboard/ppi/verifikasi/page.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js"
 }

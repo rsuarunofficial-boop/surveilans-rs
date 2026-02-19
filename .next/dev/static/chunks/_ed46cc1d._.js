@@ -206,8 +206,8 @@ function TabelVerifikasi({ data = [] }) {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                        className: "p-4 border-b border-slate-100",
-                                        children: "Keterangan Klinis"
+                                        className: "p-4 border-b border-slate-100 text-center",
+                                        children: "Lainnya"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
                                         lineNumber: 95,
@@ -215,10 +215,18 @@ function TabelVerifikasi({ data = [] }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                         className: "p-4 border-b border-slate-100",
-                                        children: "Status"
+                                        children: "Keterangan Klinis"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
                                         lineNumber: 96,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                        className: "p-4 border-b border-slate-100 text-center",
+                                        children: "Status"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
+                                        lineNumber: 97,
                                         columnNumber: 15
                                     }, this)
                                 ]
@@ -236,17 +244,17 @@ function TabelVerifikasi({ data = [] }) {
                             className: "divide-y divide-slate-50",
                             children: data.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                    colSpan: 8,
+                                    colSpan: 9,
                                     className: "p-12 text-center text-slate-400 font-medium italic text-sm",
                                     children: "Belum ada data laporan yang ditemukan."
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                    lineNumber: 102,
+                                    lineNumber: 103,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                lineNumber: 101,
+                                lineNumber: 102,
                                 columnNumber: 15
                             }, this) : data.map((row, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                     className: "hover:bg-slate-50/30 transition-colors group",
@@ -260,12 +268,12 @@ function TabelVerifikasi({ data = [] }) {
                                                 className: "w-4 h-4 rounded border-slate-300 text-blue-600 cursor-pointer accent-blue-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                lineNumber: 110,
+                                                lineNumber: 111,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 109,
+                                            lineNumber: 110,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -273,7 +281,7 @@ function TabelVerifikasi({ data = [] }) {
                                             children: index + 1
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 117,
+                                            lineNumber: 118,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -287,12 +295,12 @@ function TabelVerifikasi({ data = [] }) {
                                                             size: 14
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                            lineNumber: 123,
+                                                            lineNumber: 124,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 122,
+                                                        lineNumber: 123,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -302,18 +310,18 @@ function TabelVerifikasi({ data = [] }) {
                                                         }).format(new Date(row.tanggal))
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 125,
+                                                        lineNumber: 126,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                lineNumber: 121,
+                                                lineNumber: 122,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 120,
+                                            lineNumber: 121,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -326,7 +334,7 @@ function TabelVerifikasi({ data = [] }) {
                                                         children: row.nama_pasien
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 132,
+                                                        lineNumber: 133,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -337,18 +345,18 @@ function TabelVerifikasi({ data = [] }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 133,
+                                                        lineNumber: 134,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                lineNumber: 131,
+                                                lineNumber: 132,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 130,
+                                            lineNumber: 131,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -358,12 +366,12 @@ function TabelVerifikasi({ data = [] }) {
                                                 children: row.master_ruangan?.nama_ruangan || "N/A"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                lineNumber: 137,
+                                                lineNumber: 138,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 136,
+                                            lineNumber: 137,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -379,7 +387,7 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "UC"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 146,
+                                                                lineNumber: 147,
                                                                 columnNumber: 40
                                                             }, this),
                                                             row.cvl > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -387,7 +395,7 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "CVL"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 147,
+                                                                lineNumber: 148,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.ivl > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -395,7 +403,7 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "IVL"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 148,
+                                                                lineNumber: 149,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.ett > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -403,13 +411,13 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "ETT"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 149,
+                                                                lineNumber: 150,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 145,
+                                                        lineNumber: 146,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -420,7 +428,7 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "ISK"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 152,
+                                                                lineNumber: 153,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.iad > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -428,7 +436,7 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "IAD"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 153,
+                                                                lineNumber: 154,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.vap > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -436,7 +444,7 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "VAP"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 154,
+                                                                lineNumber: 155,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.hap > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -444,24 +452,64 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "HAP"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 155,
+                                                                lineNumber: 156,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 151,
+                                                        lineNumber: 152,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                lineNumber: 144,
+                                                lineNumber: 145,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 144,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                            className: "p-4 text-center",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex justify-center gap-1",
+                                                children: [
+                                                    row.tirah_baring > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "px-1.5 py-0.5 bg-amber-50 text-amber-600 text-[9px] rounded border border-amber-100 font-black uppercase tracking-tighter",
+                                                        children: "TB"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
+                                                        lineNumber: 165,
+                                                        columnNumber: 25
+                                                    }, this),
+                                                    row.plebitis > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "px-1.5 py-0.5 bg-orange-50 text-orange-600 text-[9px] rounded border border-orange-100 font-black uppercase tracking-tighter",
+                                                        children: "PLB"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
+                                                        lineNumber: 168,
+                                                        columnNumber: 25
+                                                    }, this),
+                                                    !row.tirah_baring && !row.plebitis && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-slate-300 italic text-[10px]",
+                                                        children: "-"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
+                                                        lineNumber: 171,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
+                                                lineNumber: 163,
+                                                columnNumber: 21
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
+                                            lineNumber: 162,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -474,10 +522,10 @@ function TabelVerifikasi({ data = [] }) {
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 className: "text-slate-400 italic font-medium tracking-tight text-[9px]",
-                                                                children: "Abx:"
+                                                                children: "Kultur:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 162,
+                                                                lineNumber: 178,
                                                                 columnNumber: 68
                                                             }, this),
                                                             " ",
@@ -485,7 +533,7 @@ function TabelVerifikasi({ data = [] }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 162,
+                                                        lineNumber: 178,
                                                         columnNumber: 44
                                                     }, this),
                                                     row.antibiotik && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -496,7 +544,7 @@ function TabelVerifikasi({ data = [] }) {
                                                                 children: "Abx:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 163,
+                                                                lineNumber: 179,
                                                                 columnNumber: 66
                                                             }, this),
                                                             " ",
@@ -504,45 +552,26 @@ function TabelVerifikasi({ data = [] }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 163,
+                                                        lineNumber: 179,
                                                         columnNumber: 42
                                                     }, this),
-                                                    row.lainnya && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "truncate",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-slate-400 italic font-medium tracking-tight text-[9px]",
-                                                                children: "Lain:"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                                lineNumber: 164,
-                                                                columnNumber: 63
-                                                            }, this),
-                                                            " ",
-                                                            row.lainnya
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 164,
-                                                        columnNumber: 39
-                                                    }, this),
-                                                    !row.hasil_kultur && !row.antibiotik && !row.lainnya && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    !row.hasil_kultur && !row.antibiotik && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-slate-200 italic",
                                                         children: "-"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                        lineNumber: 165,
-                                                        columnNumber: 80
+                                                        lineNumber: 180,
+                                                        columnNumber: 64
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                lineNumber: 161,
+                                                lineNumber: 177,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 160,
+                                            lineNumber: 176,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -554,28 +583,28 @@ function TabelVerifikasi({ data = [] }) {
                                                     children: "Pending"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                    lineNumber: 172,
+                                                    lineNumber: 186,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                                lineNumber: 171,
+                                                lineNumber: 185,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                            lineNumber: 170,
+                                            lineNumber: 184,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, row.id, true, {
                                     fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                                    lineNumber: 108,
+                                    lineNumber: 109,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/dashboard/ppi/verifikasi/TabelVerifikasi.tsx",
-                            lineNumber: 99,
+                            lineNumber: 100,
                             columnNumber: 11
                         }, this)
                     ]

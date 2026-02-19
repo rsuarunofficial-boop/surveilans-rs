@@ -30,6 +30,21 @@
       "exportedName": "getStatsBulanIni",
       "filename": "services/surveilans.ts"
     },
+    "00b8c5a825ebca5319a2f5d5bcc305bfb4a5bffbef": {
+      "workers": {
+        "app/dashboard/perawat/notifikasi/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/notifikasi/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getLatestPasienByUnit",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/notifikasi/page": "rsc"
+      },
+      "exportedName": "getLatestPasienByUnit",
+      "filename": "services/surveilans.ts"
+    },
     "404056775b03666f4e38a79d3f951509bfce91a3c2": {
       "workers": {
         "app/dashboard/perawat/notifikasi/page": {

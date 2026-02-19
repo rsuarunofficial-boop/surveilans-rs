@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Save, AlertCircle } from "lucide-react";
+import { Save } from "lucide-react";
 import { updateSurveilans } from "@/services/surveilans";
 import { useRouter } from "next/navigation";
 
@@ -23,7 +23,7 @@ export default function EditForm({ initialData }: { initialData: any }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   
-  // Inisialisasi state sesuai struktur database terbaru tanpa kolom 'lainnya'
+  // Inisialisasi state dengan menyertakan tirah_baring dan plebitis
   const [formData, setFormData] = useState({
     tanggal: initialData.tanggal || "",
     uc: initialData.uc || 0,
@@ -34,6 +34,8 @@ export default function EditForm({ initialData }: { initialData: any }) {
     iad: initialData.iad || 0,
     vap: initialData.vap || 0,
     hap: initialData.hap || 0,
+    tirah_baring: initialData.tirah_baring || 0,
+    plebitis: initialData.plebitis || 0,
     hasil_kultur: initialData.hasil_kultur || "",
     antibiotik: initialData.antibiotik || "",
   });
@@ -42,7 +44,6 @@ export default function EditForm({ initialData }: { initialData: any }) {
     e.preventDefault();
     setLoading(true);
     try {
-      // Mengirimkan pembaruan data ke tabel surveilans_harian
       await updateSurveilans(initialData.id, formData);
       router.push("/dashboard/perawat/riwayat");
       router.refresh();
@@ -85,6 +86,7 @@ export default function EditForm({ initialData }: { initialData: any }) {
                 <input 
                   type="number"
                   min="0"
+                  max="1"
                   value={formData[field as keyof typeof formData]}
                   onChange={(e) => handleNumberChange(field, e.target.value)}
                   className="p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-blue-500 outline-none font-medium transition-all bg-white"
@@ -106,6 +108,7 @@ export default function EditForm({ initialData }: { initialData: any }) {
                 <input 
                   type="number"
                   min="0"
+                  max="1"
                   value={formData[field as keyof typeof formData]}
                   onChange={(e) => handleNumberChange(field, e.target.value)}
                   className="p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-red-500 outline-none font-medium transition-all bg-white"
@@ -115,6 +118,37 @@ export default function EditForm({ initialData }: { initialData: any }) {
           </div>
         </section>
       </div>
+
+      {/* SEKSI BARU: Lainnya (TB & PLB) */}
+      <section className="space-y-4 pt-4 border-t border-slate-50">
+        <label className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest block">
+          Lainnya (Kondisi Tambahan)
+        </label>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="flex flex-col gap-1">
+            <span className="text-xs font-medium text-slate-500 uppercase tracking-tight">Tirah Baring (TB)</span>
+            <input 
+              type="number"
+              min="0"
+              max="1"
+              value={formData.tirah_baring}
+              onChange={(e) => handleNumberChange('tirah_baring', e.target.value)}
+              className="p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-amber-500 outline-none font-medium transition-all bg-white"
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-xs font-medium text-slate-500 uppercase tracking-tight">Plebitis (PLB)</span>
+            <input 
+              type="number"
+              min="0"
+              max="1"
+              value={formData.plebitis}
+              onChange={(e) => handleNumberChange('plebitis', e.target.value)}
+              className="p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-orange-500 outline-none font-medium transition-all bg-white"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Seksi Keterangan Klinis Tambahan */}
       <section className="space-y-4 pt-4 border-t border-slate-50">

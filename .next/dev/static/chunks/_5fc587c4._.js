@@ -52,7 +52,7 @@ function EditForm({ initialData }) {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Inisialisasi state sesuai struktur database terbaru tanpa kolom 'lainnya'
+    // Inisialisasi state dengan menyertakan tirah_baring dan plebitis
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         tanggal: initialData.tanggal || "",
         uc: initialData.uc || 0,
@@ -63,6 +63,8 @@ function EditForm({ initialData }) {
         iad: initialData.iad || 0,
         vap: initialData.vap || 0,
         hap: initialData.hap || 0,
+        tirah_baring: initialData.tirah_baring || 0,
+        plebitis: initialData.plebitis || 0,
         hasil_kultur: initialData.hasil_kultur || "",
         antibiotik: initialData.antibiotik || ""
     });
@@ -70,7 +72,6 @@ function EditForm({ initialData }) {
         e.preventDefault();
         setLoading(true);
         try {
-            // Mengirimkan pembaruan data ke tabel surveilans_harian
             await (0, __TURBOPACK__imported__module__$5b$project$5d2f$services$2f$data$3a$9d8c2c__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["updateSurveilans"])(initialData.id, formData);
             router.push("/dashboard/perawat/riwayat");
             router.refresh();
@@ -97,7 +98,7 @@ function EditForm({ initialData }) {
                         children: "Informasi Waktu"
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                        lineNumber: 64,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -110,13 +111,13 @@ function EditForm({ initialData }) {
                         className: "w-full md:w-1/3 p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-slate-700 bg-white"
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                        lineNumber: 67,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -130,7 +131,7 @@ function EditForm({ initialData }) {
                                 children: "Tindakan (Alat Medis)"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                lineNumber: 78,
+                                lineNumber: 79,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -148,35 +149,36 @@ function EditForm({ initialData }) {
                                                 children: field
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                                lineNumber: 84,
+                                                lineNumber: 85,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 type: "number",
                                                 min: "0",
+                                                max: "1",
                                                 value: formData[field],
                                                 onChange: (e)=>handleNumberChange(field, e.target.value),
                                                 className: "p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-blue-500 outline-none font-medium transition-all bg-white"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                                lineNumber: 85,
+                                                lineNumber: 86,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, field, true, {
                                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 84,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                lineNumber: 81,
+                                lineNumber: 82,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                        lineNumber: 77,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -187,7 +189,7 @@ function EditForm({ initialData }) {
                                 children: "Temuan Infeksi (HAIs)"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                lineNumber: 99,
+                                lineNumber: 101,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -205,41 +207,126 @@ function EditForm({ initialData }) {
                                                 children: field
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                                lineNumber: 105,
+                                                lineNumber: 107,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 type: "number",
                                                 min: "0",
+                                                max: "1",
                                                 value: formData[field],
                                                 onChange: (e)=>handleNumberChange(field, e.target.value),
                                                 className: "p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-red-500 outline-none font-medium transition-all bg-white"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                                lineNumber: 106,
+                                                lineNumber: 108,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, field, true, {
                                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 106,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                lineNumber: 102,
+                                lineNumber: 104,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                        lineNumber: 98,
+                        lineNumber: 100,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                lineNumber: 75,
+                lineNumber: 76,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "space-y-4 pt-4 border-t border-slate-50",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                        className: "text-[10px] font-semibold text-slate-400 uppercase tracking-widest block",
+                        children: "Lainnya (Kondisi Tambahan)"
+                    }, void 0, false, {
+                        fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                        lineNumber: 124,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-2 md:grid-cols-4 gap-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs font-medium text-slate-500 uppercase tracking-tight",
+                                        children: "Tirah Baring (TB)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                                        lineNumber: 129,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "number",
+                                        min: "0",
+                                        max: "1",
+                                        value: formData.tirah_baring,
+                                        onChange: (e)=>handleNumberChange('tirah_baring', e.target.value),
+                                        className: "p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-amber-500 outline-none font-medium transition-all bg-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                                        lineNumber: 130,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                                lineNumber: 128,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs font-medium text-slate-500 uppercase tracking-tight",
+                                        children: "Plebitis (PLB)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                                        lineNumber: 140,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "number",
+                                        min: "0",
+                                        max: "1",
+                                        value: formData.plebitis,
+                                        onChange: (e)=>handleNumberChange('plebitis', e.target.value),
+                                        className: "p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-orange-500 outline-none font-medium transition-all bg-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                                        lineNumber: 141,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                                lineNumber: 139,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                        lineNumber: 127,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
+                lineNumber: 123,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -250,7 +337,7 @@ function EditForm({ initialData }) {
                         children: "Keterangan Klinis Tambahan"
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                        lineNumber: 121,
+                        lineNumber: 155,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -264,7 +351,7 @@ function EditForm({ initialData }) {
                                         children: "Hasil Kultur"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                        lineNumber: 126,
+                                        lineNumber: 160,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -278,13 +365,13 @@ function EditForm({ initialData }) {
                                         className: "p-3 rounded-xl border border-slate-100 focus:ring-2 focus:ring-blue-500 outline-none font-medium text-sm text-slate-700 transition-all bg-white"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                        lineNumber: 127,
+                                        lineNumber: 161,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                lineNumber: 125,
+                                lineNumber: 159,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -295,7 +382,7 @@ function EditForm({ initialData }) {
                                         children: "Antibiotik"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                        lineNumber: 137,
+                                        lineNumber: 171,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -313,7 +400,7 @@ function EditForm({ initialData }) {
                                                     children: "-- Pilih Jenis Antibiotik --"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 178,
                                                     columnNumber: 17
                                                 }, this),
                                                 ANTIBIOTIK_OPTIONS.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -321,36 +408,36 @@ function EditForm({ initialData }) {
                                                         children: item
                                                     }, item, false, {
                                                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                                        lineNumber: 146,
+                                                        lineNumber: 180,
                                                         columnNumber: 19
                                                     }, this))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 173,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                        lineNumber: 138,
+                                        lineNumber: 172,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                                lineNumber: 136,
+                                lineNumber: 170,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                        lineNumber: 124,
+                        lineNumber: 158,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                lineNumber: 120,
+                lineNumber: 154,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -364,29 +451,29 @@ function EditForm({ initialData }) {
                             size: 18
                         }, void 0, false, {
                             fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                            lineNumber: 161,
+                            lineNumber: 195,
                             columnNumber: 11
                         }, this),
                         loading ? "Menyimpan..." : "Simpan Perubahan"
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                    lineNumber: 156,
+                    lineNumber: 190,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-                lineNumber: 155,
+                lineNumber: 189,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/dashboard/perawat/riwayat/edit/[id]/EditForm.tsx",
-        lineNumber: 61,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 }
-_s(EditForm, "iBEfymIBx4L+Z1+0ChGYeOrojKk=", false, function() {
+_s(EditForm, "oyROWrynXBqKPABv5OYPE+FQjcw=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];

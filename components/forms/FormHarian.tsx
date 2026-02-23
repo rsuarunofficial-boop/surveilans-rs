@@ -43,6 +43,7 @@ const OPSI_ANTIBIOTIK = [
   "Gentamicin",
   "Metronidazole",
   "Vancomycin",
+  "Ampicilin",
   "Lainnya / Tidak Ada"
 ];
 

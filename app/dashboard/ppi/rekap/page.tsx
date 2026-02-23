@@ -58,7 +58,7 @@ export default async function RekapLaporanPPIPage({
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-black text-slate-800 tracking-tight flex items-center gap-2">
-                Rekap Laporan Global
+                Rekap Laporan Verified
                 <Sparkles size={16} className="text-blue-400" />
               </h1>
             </div>

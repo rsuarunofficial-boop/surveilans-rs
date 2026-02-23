@@ -28,7 +28,9 @@ const menuByRole = {
   PPI: [
     { name: "Dashboard PPI", href: "/dashboard/ppi", icon: LayoutDashboard },
     { name: "Verifikasi Data", href: "/dashboard/ppi/verifikasi", icon: CheckCircle },
-    { name: "Rekap Laporan", href: "/dashboard/ppi/rekap", icon: Files },
+    { name: "Rekap Laporan Verified", href: "/dashboard/ppi/rekap", icon: Files },
+    { name: "Rekap Laporan Unit", href: "/dashboard/ppi/rekap/unit", icon: Files },
+    { name: "Rekap Laporan Global", href: "/dashboard/ppi/rekap/global", icon: Files },
   ],
   Admin: [
     { name: "Manajemen User", href: "/dashboard/admin/users", icon: Users },

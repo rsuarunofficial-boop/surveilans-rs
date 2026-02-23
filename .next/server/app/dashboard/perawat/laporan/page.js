@@ -1,5 +1,5 @@
 var R=require("../../../../chunks/ssr/[turbopack]_runtime.js")("server/app/dashboard/perawat/laporan/page.js")
-R.c("server/chunks/ssr/[root-of-the-server]__c0548a5a._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__fb2f704b._.js")
 R.c("server/chunks/ssr/_6139f1ce._.js")
 R.c("server/chunks/ssr/_0d94a408._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__be9ea26b._.js")

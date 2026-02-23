@@ -7,12 +7,17 @@ __turbopack_context__.s([
     ()=>TabelRekapPPI
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$spreadsheet$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileSpreadsheet$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-spreadsheet.js [app-client] (ecmascript) <export default as FileSpreadsheet>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as Calendar>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-left.js [app-client] (ecmascript) <export default as ChevronLeft>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-client] (ecmascript) <export default as ChevronRight>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/xlsx/xlsx.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jspdf/dist/jspdf.es.min.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2d$autotable$2f$dist$2f$jspdf$2e$plugin$2e$autotable$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.mjs [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
@@ -20,6 +25,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2d$aut
 ;
 ;
 function TabelRekapPPI({ data }) {
+    _s();
+    // Logic Paginasi
+    const [currentPage, setCurrentPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(1);
+    const itemsPerPage = 50; // Menampilkan 100 data sesuai permintaan
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const currentData = data.slice(startIndex, startIndex + itemsPerPage);
     const exportToExcel = ()=>{
         const excelData = data.map((row)=>({
                 Tanggal: new Date(row.tanggal).toLocaleDateString('id-ID'),
@@ -43,14 +55,11 @@ function TabelRekapPPI({ data }) {
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["writeFile"](workbook, `Rekap_Surveilans_RS_ARUN_${new Date().getTime()}.xlsx`);
     };
     const exportToPDF = ()=>{
-        // Gunakan orientasi Landscape ('l') karena kolom sangat banyak
         const doc = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]('l', 'mm', 'a4');
-        // Judul Laporan
         doc.setFontSize(14);
         doc.text("REKAPITULASI SURVEILANS PPI - RS ARUN LHOKSEUMAWE", 14, 15);
         doc.setFontSize(10);
         doc.text(`Dicetak pada: ${new Date().toLocaleString('id-ID')}`, 14, 20);
-        // Susun Header sesuai urutan di Excel
         const headers = [
             [
                 'Tgl',
@@ -69,7 +78,6 @@ function TabelRekapPPI({ data }) {
                 'Status'
             ]
         ];
-        // Susun Body Data sesuai urutan di Excel
         const tableBody = data.map((row)=>[
                 new Date(row.tanggal).toLocaleDateString('id-ID'),
                 row.master_ruangan?.nama_ruangan || "-",
@@ -115,7 +123,6 @@ function TabelRekapPPI({ data }) {
                 2: {
                     cellWidth: 35
                 },
-                // Kolom angka dibuat sempit
                 3: {
                     halign: 'center'
                 },
@@ -148,7 +155,7 @@ function TabelRekapPPI({ data }) {
                 },
                 13: {
                     halign: 'center'
-                } // Status
+                }
             }
         });
         doc.save(`Rekap_PPI_Detailed_${new Date().getTime()}.pdf`);
@@ -167,7 +174,7 @@ function TabelRekapPPI({ data }) {
                                 children: "Hasil Rekapitulasi"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                lineNumber: 103,
+                                lineNumber: 100,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -179,13 +186,13 @@ function TabelRekapPPI({ data }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                lineNumber: 104,
+                                lineNumber: 101,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                        lineNumber: 102,
+                        lineNumber: 99,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -193,7 +200,6 @@ function TabelRekapPPI({ data }) {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: exportToExcel,
-                                type: "button",
                                 className: "flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-[10px] font-black text-white shadow-md uppercase tracking-widest border-0 cursor-pointer transition-all hover:opacity-90",
                                 style: {
                                     backgroundColor: '#10b981',
@@ -205,7 +211,7 @@ function TabelRekapPPI({ data }) {
                                         color: "white"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 115,
+                                        lineNumber: 110,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -215,18 +221,17 @@ function TabelRekapPPI({ data }) {
                                         children: "EXCEL"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 116,
+                                        lineNumber: 111,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                lineNumber: 109,
+                                lineNumber: 105,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: exportToPDF,
-                                type: "button",
                                 className: "flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-[10px] font-black text-white shadow-md uppercase tracking-widest border-0 cursor-pointer transition-all hover:opacity-90",
                                 style: {
                                     backgroundColor: '#ef4444',
@@ -238,7 +243,7 @@ function TabelRekapPPI({ data }) {
                                         color: "white"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 126,
+                                        lineNumber: 119,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -248,25 +253,25 @@ function TabelRekapPPI({ data }) {
                                         children: "PDF"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 127,
+                                        lineNumber: 120,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                lineNumber: 120,
+                                lineNumber: 114,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                        lineNumber: 107,
+                        lineNumber: 104,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                lineNumber: 101,
+                lineNumber: 98,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -283,7 +288,7 @@ function TabelRekapPPI({ data }) {
                                         children: "No"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 136,
+                                        lineNumber: 129,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -291,7 +296,7 @@ function TabelRekapPPI({ data }) {
                                         children: "Tanggal"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 137,
+                                        lineNumber: 130,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -299,7 +304,7 @@ function TabelRekapPPI({ data }) {
                                         children: "Pasien"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 138,
+                                        lineNumber: 131,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -307,7 +312,7 @@ function TabelRekapPPI({ data }) {
                                         children: "Unit / Ruangan"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 139,
+                                        lineNumber: 132,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -315,7 +320,7 @@ function TabelRekapPPI({ data }) {
                                         children: "Tindakan & HAIs"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 133,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -323,7 +328,7 @@ function TabelRekapPPI({ data }) {
                                         children: "Keterangan Klinis"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 134,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -331,45 +336,45 @@ function TabelRekapPPI({ data }) {
                                         children: "Status"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 135,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                lineNumber: 135,
+                                lineNumber: 128,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                            lineNumber: 134,
+                            lineNumber: 127,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                             className: "divide-y divide-slate-50 font-sans",
-                            children: data.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                            children: currentData.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                     colSpan: 7,
                                     className: "p-12 text-center text-slate-400 font-medium italic text-sm",
                                     children: "Belum ada data laporan yang ditemukan."
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                    lineNumber: 148,
+                                    lineNumber: 141,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                lineNumber: 147,
+                                lineNumber: 140,
                                 columnNumber: 15
-                            }, this) : data.map((row, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                            }, this) : currentData.map((row, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                     className: "hover:bg-slate-50/30 transition-colors group",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                             className: "p-4 text-center text-[11px] font-semibold text-slate-400",
-                                            children: index + 1
+                                            children: startIndex + index + 1
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                            lineNumber: 155,
+                                            lineNumber: 148,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -383,12 +388,12 @@ function TabelRekapPPI({ data }) {
                                                             size: 14
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                            lineNumber: 161,
+                                                            lineNumber: 154,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 160,
+                                                        lineNumber: 153,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -398,18 +403,18 @@ function TabelRekapPPI({ data }) {
                                                         }).format(new Date(row.tanggal))
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 163,
+                                                        lineNumber: 156,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                lineNumber: 159,
+                                                lineNumber: 152,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                            lineNumber: 158,
+                                            lineNumber: 151,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -422,7 +427,7 @@ function TabelRekapPPI({ data }) {
                                                         children: row.nama_pasien
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 170,
+                                                        lineNumber: 163,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -433,18 +438,18 @@ function TabelRekapPPI({ data }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 171,
+                                                        lineNumber: 164,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 162,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                            lineNumber: 168,
+                                            lineNumber: 161,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -454,12 +459,12 @@ function TabelRekapPPI({ data }) {
                                                 children: row.master_ruangan?.nama_ruangan || "N/A"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                lineNumber: 175,
+                                                lineNumber: 168,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                            lineNumber: 174,
+                                            lineNumber: 167,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -475,7 +480,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "UC"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 182,
+                                                                lineNumber: 175,
                                                                 columnNumber: 40
                                                             }, this),
                                                             row.cvl > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -483,7 +488,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "CVL"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 183,
+                                                                lineNumber: 176,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.ivl > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -491,7 +496,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "IVL"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 184,
+                                                                lineNumber: 177,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.ett > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -499,13 +504,13 @@ function TabelRekapPPI({ data }) {
                                                                 children: "ETT"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 185,
+                                                                lineNumber: 178,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 181,
+                                                        lineNumber: 174,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -516,7 +521,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "ISK"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 188,
+                                                                lineNumber: 181,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.iad > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -524,7 +529,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "IAD"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 189,
+                                                                lineNumber: 182,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.vap > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -532,7 +537,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "VAP"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 190,
+                                                                lineNumber: 183,
                                                                 columnNumber: 41
                                                             }, this),
                                                             row.hap > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -540,24 +545,24 @@ function TabelRekapPPI({ data }) {
                                                                 children: "HAP"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 191,
+                                                                lineNumber: 184,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 187,
+                                                        lineNumber: 180,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                lineNumber: 180,
+                                                lineNumber: 173,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                            lineNumber: 179,
+                                            lineNumber: 172,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -573,7 +578,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "Kult:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 197,
+                                                                lineNumber: 190,
                                                                 columnNumber: 68
                                                             }, this),
                                                             " ",
@@ -581,7 +586,7 @@ function TabelRekapPPI({ data }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 197,
+                                                        lineNumber: 190,
                                                         columnNumber: 44
                                                     }, this),
                                                     row.antibiotik && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -592,7 +597,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "Abx:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 198,
+                                                                lineNumber: 191,
                                                                 columnNumber: 66
                                                             }, this),
                                                             " ",
@@ -600,7 +605,7 @@ function TabelRekapPPI({ data }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 198,
+                                                        lineNumber: 191,
                                                         columnNumber: 42
                                                     }, this),
                                                     row.lainnya && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -611,7 +616,7 @@ function TabelRekapPPI({ data }) {
                                                                 children: "Lain:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                                lineNumber: 199,
+                                                                lineNumber: 192,
                                                                 columnNumber: 74
                                                             }, this),
                                                             " ",
@@ -619,7 +624,7 @@ function TabelRekapPPI({ data }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 199,
+                                                        lineNumber: 192,
                                                         columnNumber: 39
                                                     }, this),
                                                     !row.hasil_kultur && !row.antibiotik && !row.lainnya && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -627,85 +632,157 @@ function TabelRekapPPI({ data }) {
                                                         children: "-"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                        lineNumber: 200,
+                                                        lineNumber: 193,
                                                         columnNumber: 80
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                lineNumber: 196,
+                                                lineNumber: 189,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                            lineNumber: 195,
+                                            lineNumber: 188,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                             className: "p-4 text-right",
-                                            children: row.is_verified ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "inline-flex items-center px-2 py-0.5 rounded-[4px] bg-emerald-50 text-emerald-600 border border-emerald-100/50 shadow-sm",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "text-[9px] font-bold uppercase tracking-tight leading-none",
                                                     children: "Verified"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                    lineNumber: 206,
-                                                    columnNumber: 25
+                                                    lineNumber: 198,
+                                                    columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                lineNumber: 205,
-                                                columnNumber: 23
-                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "inline-flex items-center px-1.5 py-0.5 rounded-[3px] bg-amber-50/50 border border-amber-100/50",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-[7px] font-bold uppercase tracking-tighter leading-none text-amber-600 animate-pulse",
-                                                    children: "Pending"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                    lineNumber: 210,
-                                                    columnNumber: 25
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                                lineNumber: 209,
-                                                columnNumber: 23
+                                                lineNumber: 197,
+                                                columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                            lineNumber: 203,
+                                            lineNumber: 196,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, row.id, true, {
                                     fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                                    lineNumber: 154,
+                                    lineNumber: 147,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                            lineNumber: 145,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                    lineNumber: 133,
+                    lineNumber: 126,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-                lineNumber: 132,
+                lineNumber: 125,
                 columnNumber: 7
+            }, this),
+            data.length > itemsPerPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "p-4 border-t border-slate-50 bg-slate-50/30 flex items-center justify-between",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center gap-2",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "text-[10px] font-bold text-slate-400 uppercase tracking-widest",
+                            children: [
+                                "Halaman ",
+                                currentPage,
+                                " dari ",
+                                totalPages
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                            lineNumber: 212,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                        lineNumber: 211,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center gap-1",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>setCurrentPage((prev)=>Math.max(prev - 1, 1)),
+                                disabled: currentPage === 1,
+                                className: "p-2 rounded-xl border border-slate-200 bg-white text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-all shadow-sm",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
+                                    size: 16
+                                }, void 0, false, {
+                                    fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                                    lineNumber: 222,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                                lineNumber: 217,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center px-3 py-1.5 bg-white border border-slate-200 rounded-xl",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-xs font-bold text-blue-600",
+                                    children: currentPage
+                                }, void 0, false, {
+                                    fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                                    lineNumber: 227,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                                lineNumber: 226,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>setCurrentPage((prev)=>Math.min(prev + 1, totalPages)),
+                                disabled: currentPage === totalPages,
+                                className: "p-2 rounded-xl border border-slate-200 bg-white text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-all shadow-sm",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
+                                    size: 16
+                                }, void 0, false, {
+                                    fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                                    lineNumber: 235,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                                lineNumber: 230,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                        lineNumber: 216,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
+                lineNumber: 210,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/dashboard/ppi/rekap/TabelRekapPPI.tsx",
-        lineNumber: 99,
+        lineNumber: 97,
         columnNumber: 5
     }, this);
 }
+_s(TabelRekapPPI, "6xAUoJ2motYJ38x4zeUWisA+X/4=");
 _c = TabelRekapPPI;
 var _c;
 __turbopack_context__.k.register(_c, "TabelRekapPPI");

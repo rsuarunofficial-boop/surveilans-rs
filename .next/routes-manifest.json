@@ -92,6 +92,18 @@
       "namedRegex": "^/dashboard/ppi/rekap(?:/)?$"
     },
     {
+      "page": "/dashboard/ppi/rekap/global",
+      "regex": "^/dashboard/ppi/rekap/global(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/ppi/rekap/global(?:/)?$"
+    },
+    {
+      "page": "/dashboard/ppi/rekap/unit",
+      "regex": "^/dashboard/ppi/rekap/unit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/ppi/rekap/unit(?:/)?$"
+    },
+    {
       "page": "/dashboard/ppi/verifikasi",
       "regex": "^/dashboard/ppi/verifikasi(?:/)?$",
       "routeKeys": {},

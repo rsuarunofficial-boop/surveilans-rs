@@ -1,12 +1,27 @@
 "use client";
 
-import { FileSpreadsheet, Download, Calendar, ClipboardCheck } from "lucide-react";
+import { useState } from "react";
+import { 
+  FileSpreadsheet, 
+  Download, 
+  Calendar, 
+  ChevronLeft, 
+  ChevronRight,
+  FileText 
+} from "lucide-react";
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
 export default function TabelRekapPPI({ data }: { data: any[] }) {
+  // Logic Paginasi
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 50; // Menampilkan 100 data sesuai permintaan
   
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentData = data.slice(startIndex, startIndex + itemsPerPage);
+
   const exportToExcel = () => {
     const excelData = data.map((row) => ({
       Tanggal: new Date(row.tanggal).toLocaleDateString('id-ID'),
@@ -31,22 +46,17 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
     XLSX.writeFile(workbook, `Rekap_Surveilans_RS_ARUN_${new Date().getTime()}.xlsx`);
   };
 
- const exportToPDF = () => {
-    // Gunakan orientasi Landscape ('l') karena kolom sangat banyak
+  const exportToPDF = () => {
     const doc = new jsPDF('l', 'mm', 'a4'); 
-    
-    // Judul Laporan
     doc.setFontSize(14);
     doc.text("REKAPITULASI SURVEILANS PPI - RS ARUN LHOKSEUMAWE", 14, 15);
     doc.setFontSize(10);
     doc.text(`Dicetak pada: ${new Date().toLocaleString('id-ID')}`, 14, 20);
     
-    // Susun Header sesuai urutan di Excel
     const headers = [
       ['Tgl', 'Unit', 'Pasien', 'UC', 'CVL', 'IVL', 'ETT', 'VAP', 'HAP', 'ISK', 'IAD', 'Kultur', 'Antibiotik', 'Status']
     ];
 
-    // Susun Body Data sesuai urutan di Excel
     const tableBody = data.map((row) => [
       new Date(row.tanggal).toLocaleDateString('id-ID'),
       row.master_ruangan?.nama_ruangan || "-",
@@ -69,26 +79,14 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
       head: headers,
       body: tableBody,
       theme: 'grid',
-      styles: { 
-        fontSize: 7, // Perkecil font agar semua kolom muat
-        cellPadding: 2 
-      },
-      headStyles: { 
-        fillColor: [37, 99, 235], // Warna Biru Professional
-        halign: 'center',
-        fontSize: 7,
-        fontStyle: 'bold'
-      },
+      styles: { fontSize: 7, cellPadding: 2 },
+      headStyles: { fillColor: [37, 99, 235], halign: 'center', fontSize: 7, fontStyle: 'bold' },
       columnStyles: {
-        0: { cellWidth: 20 }, // Tanggal
-        1: { cellWidth: 25 }, // Unit
-        2: { cellWidth: 35 }, // Pasien
-        // Kolom angka dibuat sempit
+        0: { cellWidth: 20 }, 1: { cellWidth: 25 }, 2: { cellWidth: 35 },
         3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' }, 
         6: { halign: 'center' }, 7: { halign: 'center' }, 8: { halign: 'center' },
         9: { halign: 'center' }, 10: { halign: 'center' }, 11: { halign: 'center' },
-        12: { cellWidth: 30 }, // Antibiotik
-        13: { halign: 'center' } // Status
+        12: { cellWidth: 30 }, 13: { halign: 'center' }
       }
     });
 
@@ -97,7 +95,6 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
 
   return (
     <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden text-slate-600 font-sans">
-    {/* HEADER SECTION - PAKSA WARNA MUNCUL */}
       <div className="p-6 border-b border-slate-50 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex-1">
           <h2 className="text-xl font-semibold text-slate-800 tracking-tight leading-none">Hasil Rekapitulasi</h2>
@@ -105,10 +102,8 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
         </div>
         
         <div className="flex flex-row items-center gap-3 w-fit">
-          {/* Tombol EXCEL - Dipaksa Hijau dengan Inline Style */}
           <button 
             onClick={exportToExcel}
-            type="button"
             className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-[10px] font-black text-white shadow-md uppercase tracking-widest border-0 cursor-pointer transition-all hover:opacity-90"
             style={{ backgroundColor: '#10b981', display: 'flex' }}
           >
@@ -116,10 +111,8 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
             <span style={{ color: 'white' }}>EXCEL</span>
           </button>
 
-          {/* Tombol PDF - Merah Solid */}
           <button 
             onClick={exportToPDF}
-            type="button"
             className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-[10px] font-black text-white shadow-md uppercase tracking-widest border-0 cursor-pointer transition-all hover:opacity-90"
             style={{ backgroundColor: '#ef4444', display: 'flex' }}
           >
@@ -143,17 +136,17 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-50 font-sans">
-            {data.length === 0 ? (
+            {currentData.length === 0 ? (
               <tr>
                 <td colSpan={7} className="p-12 text-center text-slate-400 font-medium italic text-sm">
                   Belum ada data laporan yang ditemukan.
                 </td>
               </tr>
             ) : (
-              data.map((row, index) => (
+              currentData.map((row, index) => (
                 <tr key={row.id} className="hover:bg-slate-50/30 transition-colors group">
                   <td className="p-4 text-center text-[11px] font-semibold text-slate-400">
-                    {index + 1}
+                    {startIndex + index + 1}
                   </td>
                   <td className="p-4">
                     <div className="flex items-center gap-3 text-nowrap">
@@ -201,15 +194,9 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
                     </div>
                   </td>
                   <td className="p-4 text-right">
-                    {row.is_verified ? (
-                      <div className="inline-flex items-center px-2 py-0.5 rounded-[4px] bg-emerald-50 text-emerald-600 border border-emerald-100/50 shadow-sm">
-                        <span className="text-[9px] font-bold uppercase tracking-tight leading-none">Verified</span>
-                      </div>
-                    ) : (
-                      <div className="inline-flex items-center px-1.5 py-0.5 rounded-[3px] bg-amber-50/50 border border-amber-100/50">
-                        <span className="text-[7px] font-bold uppercase tracking-tighter leading-none text-amber-600 animate-pulse">Pending</span>
-                      </div>
-                    )}
+                    <div className="inline-flex items-center px-2 py-0.5 rounded-[4px] bg-emerald-50 text-emerald-600 border border-emerald-100/50 shadow-sm">
+                      <span className="text-[9px] font-bold uppercase tracking-tight leading-none">Verified</span>
+                    </div>
                   </td>
                 </tr>
               ))
@@ -217,6 +204,39 @@ export default function TabelRekapPPI({ data }: { data: any[] }) {
           </tbody>
         </table>
       </div>
+
+      {/* FOOTER PAGINATION - NAVIGASI HALAMAN */}
+      {data.length > itemsPerPage && (
+        <div className="p-4 border-t border-slate-50 bg-slate-50/30 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Halaman {currentPage} dari {totalPages}
+            </span>
+          </div>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-all shadow-sm"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            
+            {/* Indikator angka halaman sederhana */}
+            <div className="flex items-center px-3 py-1.5 bg-white border border-slate-200 rounded-xl">
+              <span className="text-xs font-bold text-blue-600">{currentPage}</span>
+            </div>
+
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-all shadow-sm"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

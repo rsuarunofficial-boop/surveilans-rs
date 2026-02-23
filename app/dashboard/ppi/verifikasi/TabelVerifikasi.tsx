@@ -12,7 +12,7 @@ export default function TabelVerifikasi({ data = [] }: { data: any[] }) {
   const router = useRouter();
 
   // Konfigurasi Paginasi
-  const itemsPerPage = 10;
+  const itemsPerPage = 100;
   const totalPages = Math.ceil(data.length / itemsPerPage);
   
   // Mengambil data untuk halaman aktif

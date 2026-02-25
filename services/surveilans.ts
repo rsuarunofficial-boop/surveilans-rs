@@ -194,19 +194,34 @@ export async function getStatsBulanIni() {
   };
 }
 
-// ... sisanya (getRiwayat, delete, getById, update) tetap sama seperti sebelumnya
-export async function getRiwayatSurveilans() {
+// Ganti fungsi getRiwayatSurveilans menjadi seperti ini:
+
+export async function getRiwayatSurveilans(limitCount: number = 500) {
   const cookieStore = await cookies();
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     { cookies: { getAll() { return cookieStore.getAll() } } }
   );
+
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return [];
-  const { data, error } = await supabase.from('surveilans_harian').select('*').eq('user_id', user.id).order('tanggal', { ascending: false }).limit(50);
-  if (error) return [];
-  return data;
+  if (!user) return { data: [], total: 0 };
+
+  // Ambil data sekaligus hitung total tanpa limit untuk info di footer
+  const { data, error, count } = await supabase
+    .from('surveilans_harian')
+    .select('*', { count: 'exact' }) // Ini untuk mendapatkan total data asli
+    .eq('user_id', user.id)
+    .order('tanggal', { ascending: false })
+    .limit(limitCount);
+
+  if (error) return { data: [], total: 0 };
+  
+  // KUNCI: Kita return sebagai Object yang berisi Array 'data'
+  return { 
+    data: data || [], 
+    total: count || 0 
+  };
 }
 
 export async function deleteSurveilans(id: string) {

@@ -2,7 +2,7 @@ module.exports = [
 "[project]/services/surveilans.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/* __next_internal_action_entry_do_not_use__ [{"0082d32780db67842f9a72eb0277a91b4c9b793b06":"getRiwayatSurveilans","0084f58216762db8087f27ec699f91b0ded6e722d0":"getStatsBulanIni","00b8c5a825ebca5319a2f5d5bcc305bfb4a5bffbef":"getLatestPasienByUnit","404056775b03666f4e38a79d3f951509bfce91a3c2":"getSurveilansById","4088da21258b1a0a6c6ccceebb1c973932977c93d9":"deleteSurveilans","40c8c99513fc96d514be283f7074a2ff43459c7d4c":"saveSurveilansMassal","60820376b48fe913469271f8d2597f6eddb0154788":"updateSurveilans"},"",""] */ __turbopack_context__.s([
+/* __next_internal_action_entry_do_not_use__ [{"0084f58216762db8087f27ec699f91b0ded6e722d0":"getStatsBulanIni","00b8c5a825ebca5319a2f5d5bcc305bfb4a5bffbef":"getLatestPasienByUnit","404056775b03666f4e38a79d3f951509bfce91a3c2":"getSurveilansById","4082d32780db67842f9a72eb0277a91b4c9b793b06":"getRiwayatSurveilans","4088da21258b1a0a6c6ccceebb1c973932977c93d9":"deleteSurveilans","40c8c99513fc96d514be283f7074a2ff43459c7d4c":"saveSurveilansMassal","60820376b48fe913469271f8d2597f6eddb0154788":"updateSurveilans"},"",""] */ __turbopack_context__.s([
     "deleteSurveilans",
     ()=>deleteSurveilans,
     "getLatestPasienByUnit",
@@ -163,7 +163,7 @@ async function getStatsBulanIni() {
         details
     };
 }
-async function getRiwayatSurveilans() {
+async function getRiwayatSurveilans(limitCount = 500) {
     const cookieStore = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["cookies"])();
     const supabase = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$createServerClient$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createServerClient"])(("TURBOPACK compile-time value", "https://txhpkvybwwkqjhqdrmno.supabase.co"), ("TURBOPACK compile-time value", "sb_publishable_g1KlkWg1pC4MTYO8frRuRg_kGNy5jaF"), {
         cookies: {
@@ -173,12 +173,26 @@ async function getRiwayatSurveilans() {
         }
     });
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return [];
-    const { data, error } = await supabase.from('surveilans_harian').select('*').eq('user_id', user.id).order('tanggal', {
+    if (!user) return {
+        data: [],
+        total: 0
+    };
+    // Ambil data sekaligus hitung total tanpa limit untuk info di footer
+    const { data, error, count } = await supabase.from('surveilans_harian').select('*', {
+        count: 'exact'
+    }) // Ini untuk mendapatkan total data asli
+    .eq('user_id', user.id).order('tanggal', {
         ascending: false
-    }).limit(50);
-    if (error) return [];
-    return data;
+    }).limit(limitCount);
+    if (error) return {
+        data: [],
+        total: 0
+    };
+    // KUNCI: Kita return sebagai Object yang berisi Array 'data'
+    return {
+        data: data || [],
+        total: count || 0
+    };
 }
 async function deleteSurveilans(id) {
     const cookieStore = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["cookies"])();
@@ -254,7 +268,7 @@ async function updateSurveilans(id, formData) {
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getLatestPasienByUnit, "00b8c5a825ebca5319a2f5d5bcc305bfb4a5bffbef", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(saveSurveilansMassal, "40c8c99513fc96d514be283f7074a2ff43459c7d4c", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getStatsBulanIni, "0084f58216762db8087f27ec699f91b0ded6e722d0", null);
-(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getRiwayatSurveilans, "0082d32780db67842f9a72eb0277a91b4c9b793b06", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getRiwayatSurveilans, "4082d32780db67842f9a72eb0277a91b4c9b793b06", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(deleteSurveilans, "4088da21258b1a0a6c6ccceebb1c973932977c93d9", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getSurveilansById, "404056775b03666f4e38a79d3f951509bfce91a3c2", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(updateSurveilans, "60820376b48fe913469271f8d2597f6eddb0154788", null);
@@ -276,14 +290,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts
 "use strict";
 
 __turbopack_context__.s([
-    "0082d32780db67842f9a72eb0277a91b4c9b793b06",
-    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRiwayatSurveilans"],
     "0084f58216762db8087f27ec699f91b0ded6e722d0",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getStatsBulanIni"],
     "00b8c5a825ebca5319a2f5d5bcc305bfb4a5bffbef",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getLatestPasienByUnit"],
     "404056775b03666f4e38a79d3f951509bfce91a3c2",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSurveilansById"],
+    "4082d32780db67842f9a72eb0277a91b4c9b793b06",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRiwayatSurveilans"],
     "4088da21258b1a0a6c6ccceebb1c973932977c93d9",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["deleteSurveilans"],
     "40c8c99513fc96d514be283f7074a2ff43459c7d4c",

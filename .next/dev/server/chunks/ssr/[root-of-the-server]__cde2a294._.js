@@ -70,6 +70,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-rsc] (ecmascript) <export default as ChevronRight>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$database$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Database$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/database.js [app-rsc] (ecmascript) <export default as Database>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$lock$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Lock$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/lock.js [app-rsc] (ecmascript) <export default as Lock>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$left$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsLeft$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevrons-left.js [app-rsc] (ecmascript) <export default as ChevronsLeft>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$right$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevrons-right.js [app-rsc] (ecmascript) <export default as ChevronsRight>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.react-server.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$dashboard$2f$perawat$2f$riwayat$2f$DeleteButton$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/dashboard/perawat/riwayat/DeleteButton.tsx [app-rsc] (ecmascript)");
 ;
@@ -82,87 +84,96 @@ async function RiwayatPage({ searchParams }) {
     const sParams = await searchParams;
     const currentPage = Number(sParams.page) || 1;
     const currentLimit = Number(sParams.limit) || 10;
-    const allRiwayat = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRiwayatSurveilans"])();
-    const totalData = allRiwayat.length;
+    const result = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$services$2f$surveilans$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRiwayatSurveilans"])(1000);
+    const allData = Array.isArray(result) ? result : result?.data || [];
+    const totalDatabase = result?.total || allData.length;
+    const totalData = allData.length;
     const totalPages = Math.ceil(totalData / currentLimit);
     const startIndex = (currentPage - 1) * currentLimit;
-    const paginatedData = allRiwayat.slice(startIndex, startIndex + currentLimit);
+    const paginatedData = allData.slice(startIndex, startIndex + currentLimit);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "space-y-6 text-slate-600",
+        className: "space-y-5 text-slate-600 font-sans antialiased",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col md:flex-row md:items-center justify-between gap-4",
+                className: "flex flex-col md:flex-row md:items-end justify-between gap-4 px-2",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-xl font-semibold text-slate-800 tracking-tight",
+                                className: "text-2xl font-bold text-slate-800 tracking-tight",
                                 children: "Riwayat Surveilans"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                lineNumber: 35,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-sm text-slate-500 font-medium",
-                                children: "Laporan unit kerja Anda di RS Arun"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                lineNumber: 36,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                        lineNumber: 34,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-2 bg-white px-3 py-1.5 rounded-2xl border border-slate-100 shadow-sm",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$database$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Database$3e$__["Database"], {
-                                size: 14,
-                                className: "text-slate-400"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
                                 lineNumber: 40,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-[10px] font-medium text-slate-400 uppercase tracking-widest mr-2",
-                                children: "Tampilkan:"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-[10px] text-slate-400 font-semibold uppercase tracking-[0.1em] mt-1",
+                                children: "Laporan Unit Kerja Anda di RS Arun"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
                                 lineNumber: 41,
                                 columnNumber: 11
-                            }, this),
-                            [
-                                10,
-                                50,
-                                100
-                            ].map((num)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                    href: `/dashboard/perawat/riwayat?page=1&limit=${num}`,
-                                    className: `px-3 py-1 rounded-lg text-xs transition-all ${currentLimit === num ? "bg-blue-600 text-white shadow-md shadow-blue-100 font-medium" : "text-slate-500 hover:bg-slate-50 font-medium"}`,
-                                    children: num
-                                }, num, false, {
-                                    fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                    lineNumber: 43,
-                                    columnNumber: 13
-                                }, this))
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
                         lineNumber: 39,
                         columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-slate-100 shadow-sm",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$database$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Database$3e$__["Database"], {
+                                size: 12,
+                                className: "text-slate-300"
+                            }, void 0, false, {
+                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                lineNumber: 46,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "text-[9px] font-bold text-slate-400 uppercase tracking-wider mr-1",
+                                children: "Tampilkan:"
+                            }, void 0, false, {
+                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                lineNumber: 47,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-1",
+                                children: [
+                                    10,
+                                    50,
+                                    100
+                                ].map((num)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                        href: `/dashboard/perawat/riwayat?page=1&limit=${num}`,
+                                        className: `px-3 py-1 rounded-lg text-[10px] font-bold transition-all ${currentLimit === num ? "bg-blue-600 text-white shadow-sm" : "text-slate-400 hover:text-slate-600"}`,
+                                        children: num
+                                    }, num, false, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                        lineNumber: 50,
+                                        columnNumber: 15
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                lineNumber: 48,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                        lineNumber: 45,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                lineNumber: 33,
+                lineNumber: 38,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden",
+                className: "bg-white rounded-3xl border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.02)] overflow-hidden",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "overflow-x-auto",
@@ -178,7 +189,7 @@ async function RiwayatPage({ searchParams }) {
                                                 children: "No"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 63,
+                                                lineNumber: 72,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -186,7 +197,7 @@ async function RiwayatPage({ searchParams }) {
                                                 children: "Tanggal"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 64,
+                                                lineNumber: 73,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -194,7 +205,7 @@ async function RiwayatPage({ searchParams }) {
                                                 children: "Pasien"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 65,
+                                                lineNumber: 74,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -202,7 +213,7 @@ async function RiwayatPage({ searchParams }) {
                                                 children: "Tindakan & HAIs"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 66,
+                                                lineNumber: 75,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -210,7 +221,7 @@ async function RiwayatPage({ searchParams }) {
                                                 children: "Lainnya"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 67,
+                                                lineNumber: 76,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -218,7 +229,7 @@ async function RiwayatPage({ searchParams }) {
                                                 children: "Keterangan Klinis"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 68,
+                                                lineNumber: 77,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -226,46 +237,32 @@ async function RiwayatPage({ searchParams }) {
                                                 children: "Aksi"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 69,
+                                                lineNumber: 78,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                        lineNumber: 62,
+                                        lineNumber: 71,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                    lineNumber: 61,
+                                    lineNumber: 70,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                                     className: "divide-y divide-slate-50",
-                                    children: paginatedData.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            colSpan: 7,
-                                            className: "p-12 text-center text-slate-400 italic text-sm",
-                                            children: "Belum ada data laporan yang ditemukan."
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                            lineNumber: 75,
-                                            columnNumber: 19
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                        lineNumber: 74,
-                                        columnNumber: 17
-                                    }, this) : paginatedData.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                            className: "hover:bg-slate-50/30 transition-colors group",
+                                    children: paginatedData.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                            className: "group hover:bg-slate-50/40 transition-colors",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                     className: "p-4 text-center text-[11px] font-semibold text-slate-400",
                                                     children: startIndex + index + 1
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                    lineNumber: 82,
-                                                    columnNumber: 21
+                                                    lineNumber: 84,
+                                                    columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                     className: "p-4",
@@ -278,12 +275,12 @@ async function RiwayatPage({ searchParams }) {
                                                                     size: 14
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                    lineNumber: 88,
+                                                                    lineNumber: 90,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 87,
+                                                                lineNumber: 89,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -293,19 +290,19 @@ async function RiwayatPage({ searchParams }) {
                                                                 }).format(new Date(item.tanggal))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 90,
+                                                                lineNumber: 92,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                        lineNumber: 86,
+                                                        lineNumber: 88,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                    lineNumber: 85,
-                                                    columnNumber: 21
+                                                    lineNumber: 87,
+                                                    columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                     className: "p-4",
@@ -317,7 +314,7 @@ async function RiwayatPage({ searchParams }) {
                                                                 children: item.nama_pasien
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 97,
+                                                                lineNumber: 99,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -328,19 +325,19 @@ async function RiwayatPage({ searchParams }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 98,
+                                                                lineNumber: 100,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                        lineNumber: 96,
+                                                        lineNumber: 98,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                    lineNumber: 95,
-                                                    columnNumber: 21
+                                                    lineNumber: 97,
+                                                    columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                     className: "p-4 text-center",
@@ -355,7 +352,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "UC"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 104,
+                                                                        lineNumber: 107,
                                                                         columnNumber: 43
                                                                     }, this),
                                                                     item.cvl > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -363,7 +360,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "CVL"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 105,
+                                                                        lineNumber: 108,
                                                                         columnNumber: 44
                                                                     }, this),
                                                                     item.ivl > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -371,7 +368,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "IVL"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 106,
+                                                                        lineNumber: 109,
                                                                         columnNumber: 44
                                                                     }, this),
                                                                     item.ett > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -379,13 +376,13 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "ETT"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 107,
+                                                                        lineNumber: 110,
                                                                         columnNumber: 44
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 103,
+                                                                lineNumber: 106,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -396,7 +393,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "ISK"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 110,
+                                                                        lineNumber: 113,
                                                                         columnNumber: 44
                                                                     }, this),
                                                                     item.iad > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -404,7 +401,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "IAD"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 111,
+                                                                        lineNumber: 114,
                                                                         columnNumber: 44
                                                                     }, this),
                                                                     item.vap > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -412,7 +409,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "VAP"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 112,
+                                                                        lineNumber: 115,
                                                                         columnNumber: 44
                                                                     }, this),
                                                                     item.hap > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -420,25 +417,25 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "HAP"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 113,
+                                                                        lineNumber: 116,
                                                                         columnNumber: 44
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 109,
+                                                                lineNumber: 112,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                        lineNumber: 102,
+                                                        lineNumber: 105,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                    lineNumber: 101,
-                                                    columnNumber: 21
+                                                    lineNumber: 104,
+                                                    columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                     className: "p-4 text-center",
@@ -450,7 +447,7 @@ async function RiwayatPage({ searchParams }) {
                                                                 children: "TB"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 121,
+                                                                lineNumber: 123,
                                                                 columnNumber: 27
                                                             }, this),
                                                             item.plebitis > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -458,7 +455,7 @@ async function RiwayatPage({ searchParams }) {
                                                                 children: "PLB"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 124,
+                                                                lineNumber: 126,
                                                                 columnNumber: 27
                                                             }, this),
                                                             !item.tirah_baring && !item.plebitis && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -466,19 +463,19 @@ async function RiwayatPage({ searchParams }) {
                                                                 children: "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 127,
+                                                                lineNumber: 129,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                        lineNumber: 119,
+                                                        lineNumber: 121,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                    lineNumber: 118,
-                                                    columnNumber: 21
+                                                    lineNumber: 120,
+                                                    columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                     className: "p-4 text-[11px]",
@@ -493,7 +490,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "Kultur:"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 133,
+                                                                        lineNumber: 135,
                                                                         columnNumber: 71
                                                                     }, this),
                                                                     " ",
@@ -501,7 +498,7 @@ async function RiwayatPage({ searchParams }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 133,
+                                                                lineNumber: 135,
                                                                 columnNumber: 47
                                                             }, this),
                                                             item.antibiotik && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -512,7 +509,7 @@ async function RiwayatPage({ searchParams }) {
                                                                         children: "Abx:"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 134,
+                                                                        lineNumber: 136,
                                                                         columnNumber: 69
                                                                     }, this),
                                                                     " ",
@@ -520,7 +517,7 @@ async function RiwayatPage({ searchParams }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 134,
+                                                                lineNumber: 136,
                                                                 columnNumber: 45
                                                             }, this),
                                                             !item.hasil_kultur && !item.antibiotik && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -528,197 +525,262 @@ async function RiwayatPage({ searchParams }) {
                                                                 children: "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                lineNumber: 135,
+                                                                lineNumber: 137,
                                                                 columnNumber: 68
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                        lineNumber: 132,
+                                                        lineNumber: 134,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                    lineNumber: 131,
-                                                    columnNumber: 21
+                                                    lineNumber: 133,
+                                                    columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                    className: "p-4 text-right",
+                                                    className: "p-5 text-right",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flex justify-end gap-1",
                                                         children: !item.is_verified ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Fragment"], {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                                                     href: `/dashboard/perawat/riwayat/edit/${item.id}`,
-                                                                    className: "p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all",
+                                                                    className: "p-1.5 text-slate-300 hover:text-blue-500 transition-colors",
                                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$pen$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__FileEdit$3e$__["FileEdit"], {
-                                                                        size: 16
+                                                                        size: 16,
+                                                                        strokeWidth: 1.5
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                        lineNumber: 146,
-                                                                        columnNumber: 31
+                                                                        lineNumber: 148,
+                                                                        columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                    lineNumber: 142,
-                                                                    columnNumber: 29
+                                                                    lineNumber: 144,
+                                                                    columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$dashboard$2f$perawat$2f$riwayat$2f$DeleteButton$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                                                     id: item.id
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                    lineNumber: 148,
-                                                                    columnNumber: 29
+                                                                    lineNumber: 150,
+                                                                    columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 rounded-xl border border-slate-100 group-hover:bg-white transition-all cursor-not-allowed",
+                                                            className: "flex items-center gap-1.5 px-3 py-1 bg-slate-50/50 rounded-lg border border-slate-100",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$lock$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Lock$3e$__["Lock"], {
-                                                                    size: 12,
+                                                                    size: 10,
                                                                     className: "text-slate-300"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                    lineNumber: 152,
-                                                                    columnNumber: 30
+                                                                    lineNumber: 154,
+                                                                    columnNumber: 28
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                    className: "text-[10px] font-black text-slate-300 uppercase tracking-widest italic",
+                                                                    className: "text-[8px] font-bold text-slate-300 uppercase tracking-widest italic leading-none",
                                                                     children: "Locked"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                                    lineNumber: 153,
-                                                                    columnNumber: 30
+                                                                    lineNumber: 155,
+                                                                    columnNumber: 28
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                            lineNumber: 151,
-                                                            columnNumber: 27
+                                                            lineNumber: 153,
+                                                            columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                        lineNumber: 139,
-                                                        columnNumber: 23
+                                                        lineNumber: 141,
+                                                        columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                    lineNumber: 138,
-                                                    columnNumber: 21
+                                                    lineNumber: 140,
+                                                    columnNumber: 19
                                                 }, this)
                                             ]
                                         }, item.id, true, {
                                             fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                            lineNumber: 81,
-                                            columnNumber: 19
+                                            lineNumber: 83,
+                                            columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 81,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                            lineNumber: 60,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                        lineNumber: 59,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "p-4 bg-slate-50/50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-semibold text-slate-400 uppercase tracking-widest",
+                        className: "p-5 border-t border-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-50/30",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-[9px] font-bold text-slate-400 uppercase tracking-widest",
                                 children: [
                                     "Halaman ",
                                     currentPage,
                                     " Dari ",
                                     totalPages || 1,
                                     " — Total ",
-                                    totalData,
+                                    totalDatabase,
                                     " Data"
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                lineNumber: 167,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center gap-2",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                        href: `/dashboard/perawat/riwayat?page=${Math.max(1, currentPage - 1)}&limit=${currentLimit}`,
-                                        className: `p-2 rounded-xl border border-slate-200 transition-all ${currentPage === 1 ? "opacity-30 pointer-events-none" : "bg-white hover:border-blue-300 text-slate-600"}`,
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
-                                            size: 16
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                            lineNumber: 170,
-                                            columnNumber: 15
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                        lineNumber: 169,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex gap-1",
-                                        children: Array.from({
-                                            length: totalPages
-                                        }, (_, i)=>i + 1).map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                href: `/dashboard/perawat/riwayat?page=${p}&limit=${currentLimit}`,
-                                                className: `w-8 h-8 flex items-center justify-center rounded-lg text-xs transition-all ${currentPage === p ? "bg-blue-600 text-white shadow-lg shadow-blue-100 font-semibold" : "bg-white text-slate-500 border border-slate-200 hover:border-blue-300 font-semibold"}`,
-                                                children: p
-                                            }, p, false, {
-                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                                lineNumber: 174,
-                                                columnNumber: 17
-                                            }, this))
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                        lineNumber: 172,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                        href: `/dashboard/perawat/riwayat?page=${Math.min(totalPages, currentPage + 1)}&limit=${currentLimit}`,
-                                        className: `p-2 rounded-xl border border-slate-200 transition-all ${currentPage === totalPages || totalPages === 0 ? "opacity-30 pointer-events-none" : "bg-white hover:border-blue-300 text-slate-600"}`,
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
-                                            size: 16
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                            lineNumber: 180,
-                                            columnNumber: 15
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                                        lineNumber: 179,
-                                        columnNumber: 13
-                                    }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
                                 lineNumber: 168,
                                 columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-1 mr-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                href: `?page=1&limit=${currentLimit}`,
+                                                className: `p-1.5 rounded-lg border border-slate-100 ${currentPage === 1 ? "text-slate-200" : "text-slate-400 hover:bg-white"}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$left$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsLeft$3e$__["ChevronsLeft"], {
+                                                    size: 14
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                    lineNumber: 174,
+                                                    columnNumber: 189
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                lineNumber: 174,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                href: `?page=${Math.max(1, currentPage - 1)}&limit=${currentLimit}`,
+                                                className: `p-1.5 rounded-lg border border-slate-100 ${currentPage === 1 ? "text-slate-200" : "text-slate-400 hover:bg-white"}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
+                                                    size: 14
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                    lineNumber: 175,
+                                                    columnNumber: 219
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                lineNumber: 175,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                        lineNumber: 173,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "bg-white border border-slate-100 px-3 py-1 rounded-lg shadow-sm",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[10px] font-bold text-blue-600",
+                                                children: currentPage
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                lineNumber: 179,
+                                                columnNumber: 16
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[10px] font-medium text-slate-300 mx-1",
+                                                children: "/"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                lineNumber: 180,
+                                                columnNumber: 16
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[10px] font-bold text-slate-400",
+                                                children: totalPages || 1
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                lineNumber: 181,
+                                                columnNumber: 16
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                        lineNumber: 178,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-1 ml-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                href: `?page=${Math.min(totalPages, currentPage + 1)}&limit=${currentLimit}`,
+                                                className: `p-1.5 rounded-lg border border-slate-100 ${currentPage === totalPages ? "text-slate-200" : "text-slate-400 hover:bg-white"}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
+                                                    size: 14
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                    lineNumber: 185,
+                                                    columnNumber: 237
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                lineNumber: 185,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                href: `?page=${totalPages}&limit=${currentLimit}`,
+                                                className: `p-1.5 rounded-lg border border-slate-100 ${currentPage === totalPages ? "text-slate-200" : "text-slate-400 hover:bg-white"}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$right$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsRight$3e$__["ChevronsRight"], {
+                                                    size: 14
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                    lineNumber: 186,
+                                                    columnNumber: 210
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                                lineNumber: 186,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                        lineNumber: 184,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
+                                lineNumber: 172,
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                        lineNumber: 166,
+                        lineNumber: 167,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-                lineNumber: 58,
+                lineNumber: 67,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/dashboard/perawat/riwayat/page.tsx",
-        lineNumber: 32,
+        lineNumber: 36,
         columnNumber: 5
     }, this);
 }

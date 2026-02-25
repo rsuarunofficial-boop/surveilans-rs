@@ -1,48 +1,5 @@
 {
   "node": {
-    "00d2ba7a54e125d8cbfe5661ed314dd296e3ae38e2": {
-      "workers": {
-        "app/dashboard/perawat/laporan/page": {
-          "moduleId": 36813,
-          "async": false,
-          "exportedName": "getRiwayatSurveilans",
-          "filename": "services/surveilans.ts"
-        },
-        "app/dashboard/perawat/notifikasi/page": {
-          "moduleId": 52031,
-          "async": false,
-          "exportedName": "getRiwayatSurveilans",
-          "filename": "services/surveilans.ts"
-        },
-        "app/dashboard/perawat/page": {
-          "moduleId": 6907,
-          "async": false,
-          "exportedName": "getRiwayatSurveilans",
-          "filename": "services/surveilans.ts"
-        },
-        "app/dashboard/perawat/riwayat/edit/[id]/page": {
-          "moduleId": 83611,
-          "async": false,
-          "exportedName": "getRiwayatSurveilans",
-          "filename": "services/surveilans.ts"
-        },
-        "app/dashboard/perawat/riwayat/page": {
-          "moduleId": 79295,
-          "async": false,
-          "exportedName": "getRiwayatSurveilans",
-          "filename": "services/surveilans.ts"
-        }
-      },
-      "layer": {
-        "app/dashboard/perawat/laporan/page": "rsc",
-        "app/dashboard/perawat/notifikasi/page": "rsc",
-        "app/dashboard/perawat/page": "rsc",
-        "app/dashboard/perawat/riwayat/edit/[id]/page": "rsc",
-        "app/dashboard/perawat/riwayat/page": "rsc"
-      },
-      "filename": "services/surveilans.ts",
-      "exportedName": "getRiwayatSurveilans"
-    },
     "00ebe08555dd0dd6c565c6c313a88439d0cfc3ecdf": {
       "workers": {
         "app/dashboard/perawat/form/page": {
@@ -271,6 +228,49 @@
       },
       "filename": "services/surveilans.ts",
       "exportedName": "deleteSurveilans"
+    },
+    "40d2ba7a54e125d8cbfe5661ed314dd296e3ae38e2": {
+      "workers": {
+        "app/dashboard/perawat/laporan/page": {
+          "moduleId": 36813,
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        },
+        "app/dashboard/perawat/notifikasi/page": {
+          "moduleId": 52031,
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        },
+        "app/dashboard/perawat/page": {
+          "moduleId": 6907,
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        },
+        "app/dashboard/perawat/riwayat/edit/[id]/page": {
+          "moduleId": 83611,
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        },
+        "app/dashboard/perawat/riwayat/page": {
+          "moduleId": 79295,
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/laporan/page": "rsc",
+        "app/dashboard/perawat/notifikasi/page": "rsc",
+        "app/dashboard/perawat/page": "rsc",
+        "app/dashboard/perawat/riwayat/edit/[id]/page": "rsc",
+        "app/dashboard/perawat/riwayat/page": "rsc"
+      },
+      "filename": "services/surveilans.ts",
+      "exportedName": "getRiwayatSurveilans"
     },
     "60e90c393283d82a99d88075c5de0fbdb59814d000": {
       "workers": {

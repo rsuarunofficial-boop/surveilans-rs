@@ -1,20 +1,5 @@
 {
   "node": {
-    "0082d32780db67842f9a72eb0277a91b4c9b793b06": {
-      "workers": {
-        "app/dashboard/perawat/riwayat/page": {
-          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getRiwayatSurveilans",
-          "filename": "services/surveilans.ts"
-        }
-      },
-      "layer": {
-        "app/dashboard/perawat/riwayat/page": "rsc"
-      },
-      "exportedName": "getRiwayatSurveilans",
-      "filename": "services/surveilans.ts"
-    },
     "0084f58216762db8087f27ec699f91b0ded6e722d0": {
       "workers": {
         "app/dashboard/perawat/riwayat/page": {
@@ -58,6 +43,21 @@
         "app/dashboard/perawat/riwayat/page": "rsc"
       },
       "exportedName": "getSurveilansById",
+      "filename": "services/surveilans.ts"
+    },
+    "4082d32780db67842f9a72eb0277a91b4c9b793b06": {
+      "workers": {
+        "app/dashboard/perawat/riwayat/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/perawat/riwayat/page/actions.js { ACTIONS_MODULE0 => \"[project]/services/surveilans.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getRiwayatSurveilans",
+          "filename": "services/surveilans.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/perawat/riwayat/page": "rsc"
+      },
+      "exportedName": "getRiwayatSurveilans",
       "filename": "services/surveilans.ts"
     },
     "4088da21258b1a0a6c6ccceebb1c973932977c93d9": {

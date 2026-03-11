@@ -20,6 +20,8 @@ export default async function PPIDashboard() {
   const stats = await getPPIDashboardStats();
   const namaBulan = new Intl.DateTimeFormat('id-ID', { month: 'long', year: 'numeric' }).format(new Date());
 
+  const verifiedCount = (stats?.totalEntries || 0) - (stats?.belumVerif || 0);
+
   return (
     <div className="space-y-6">
       {/* Header PPI */}
@@ -64,9 +66,9 @@ export default async function PPIDashboard() {
           <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4">
             <CheckCircle2 size={24} />
           </div>
-          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Total Laporan Masuk</p>
-          <h2 className="text-4xl font-black text-slate-800 mt-2">{stats?.totalEntries || 0}</h2>
-          <p className="text-xs font-bold text-slate-400 mt-2 uppercase">Seluruh Unit RS Arun</p>
+          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Laporan Terverifikasi</p>
+          <h2 className="text-4xl font-black text-slate-800 mt-2">{verifiedCount}</h2>
+          <p className="text-xs font-bold text-slate-400 mt-2 uppercase">Bulan {namaBulan}</p>
         </div>
       </div>
 

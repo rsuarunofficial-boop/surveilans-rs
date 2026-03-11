@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/lincoln1/public_html/portal.rsuarun.com
+    - /bin/cp -r * $DEPLOYPATH
+    - /bin/rm -rf $DEPLOYPATH/.git
